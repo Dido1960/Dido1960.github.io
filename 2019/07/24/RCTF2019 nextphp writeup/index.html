@@ -20,6 +20,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="referrer" content="no-referrer">
 
 
 
@@ -98,23 +99,23 @@
 
 
 
-  <meta name="description" content="## 问题 PHP is the best language!  http://nextphp.2019.rctf.rois.io 解题php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞 1http://nextphp.2019.rctf.rois.io/?a=echo phpinfo();  查看php配置信息，发现过滤了大多数系统函数但没有过滤scandir() 1h">
+  <meta name="description" content="问题PHP is the best language! http://nextphp.2019.rctf.rois.io 解题php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞 1http://nextphp.2019.rctf.rois.io/?a=echo phpinfo();  查看php配置信息，发现过滤了大多数系统函数但没有过滤scandir() 1http:">
 <meta name="keywords" content="CTF,PHP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RCTF2019 nextphp writeup">
 <meta property="og:url" content="http://yoursite.com/2019/07/24/RCTF2019 nextphp writeup/index.html">
 <meta property="og:site_name" content="Huha&#39;s Blog">
-<meta property="og:description" content="## 问题 PHP is the best language!  http://nextphp.2019.rctf.rois.io 解题php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞 1http://nextphp.2019.rctf.rois.io/?a=echo phpinfo();  查看php配置信息，发现过滤了大多数系统函数但没有过滤scandir() 1h">
+<meta property="og:description" content="问题PHP is the best language! http://nextphp.2019.rctf.rois.io 解题php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞 1http://nextphp.2019.rctf.rois.io/?a=echo phpinfo();  查看php配置信息，发现过滤了大多数系统函数但没有过滤scandir() 1http:">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190520231338443.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2019052023003167.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190521012241431.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190520234009226.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190521011445961.png">
-<meta property="og:updated_time" content="2019-07-24T16:55:29.553Z">
+<meta property="og:updated_time" content="2019-07-24T17:06:33.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RCTF2019 nextphp writeup">
-<meta name="twitter:description" content="## 问题 PHP is the best language!  http://nextphp.2019.rctf.rois.io 解题php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞 1http://nextphp.2019.rctf.rois.io/?a=echo phpinfo();  查看php配置信息，发现过滤了大多数系统函数但没有过滤scandir() 1h">
+<meta name="twitter:description" content="问题PHP is the best language! http://nextphp.2019.rctf.rois.io 解题php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞 1http://nextphp.2019.rctf.rois.io/?a=echo phpinfo();  查看php配置信息，发现过滤了大多数系统函数但没有过滤scandir() 1http:">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190520231338443.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70">
 
 
@@ -419,7 +420,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-25 00:55:29" itemprop="dateModified" datetime="2019-07-25T00:55:29+08:00">2019-07-25</time>
+                <time title="修改时间：2019-07-25 01:06:33" itemprop="dateModified" datetime="2019-07-25T01:06:33+08:00">2019-07-25</time>
               
             
           </span>
@@ -471,9 +472,8 @@
 
       
         <meta name="referrer" content="no-referrer">
-## 问题
-PHP is the best language!
 
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>PHP is the best language!</p>
 <p><a href="http://nextphp.2019.rctf.rois.io" target="_blank" rel="noopener">http://nextphp.2019.rctf.rois.io</a></p>
 <h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//nextphp.2019.rctf.rois.io/?a=echo phpinfo();</span></span><br></pre></td></tr></table></figure>
@@ -711,7 +711,7 @@ PHP is the best language!
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题"><span class="nav-number">1.</span> <span class="nav-text">解题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-flag"><span class="nav-number">3.</span> <span class="nav-text">Get flag</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题"><span class="nav-number">2.</span> <span class="nav-text">解题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Get-flag"><span class="nav-number">4.</span> <span class="nav-text">Get flag</span></a></li></ol></div>
             
 
           </div>
