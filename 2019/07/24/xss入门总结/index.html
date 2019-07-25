@@ -796,7 +796,7 @@
 
 <div>
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-views <span id="busuanzi_value_site_pv"></span> times&nbsp&nbsp&nbsp
+Views <span id="busuanzi_value_site_pv"></span> 520 times&nbsp&nbsp&nbsp
 </div>
         
 <div class="busuanzi-count">
@@ -1270,9 +1270,14 @@ views <span id="busuanzi_value_site_pv"></span> times&nbsp&nbsp&nbsp
             })
           } else {
             
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
             
           }
         })
