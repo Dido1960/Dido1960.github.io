@@ -109,7 +109,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190729105411307.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190729105426939.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-07-29T03:00:12.946Z">
+<meta property="og:updated_time" content="2019-07-29T07:49:42.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lord of SQLInjection Write Up(二)">
 <meta name="twitter:description" content="assassin123456789101112&amp;lt;?php   include &quot;./config.php&quot;;   login_chk();   $db = dbconnect();   if(preg_match(&apos;/\&apos;/i&apos;, $_GET[pw])) exit(&quot;No Hack ~_~&quot;);   $query = &quot;select id from prob_assassin where p">
@@ -400,7 +400,7 @@
                 
               
 
-              <time title="创建时间：2019-07-29 10:59:28 / 修改时间：11:00:12" itemprop="dateCreated datePublished" datetime="2019-07-29T10:59:28+08:00">2019-07-29</time>
+              <time title="创建时间：2019-07-29 10:59:28 / 修改时间：15:49:42" itemprop="dateCreated datePublished" datetime="2019-07-29T10:59:28+08:00">2019-07-29</time>
             
 
             
@@ -500,7 +500,7 @@
 
 
 <p>寻找突破#注释的方法，发现#是单行注释，顾名思义，不能注释下一行的内容，这就是突破点<br>传入%0a作为换行符</p>
-<h2 id="payload-4"><a href="#payload-4" class="headerlink" title="payload"></a>payload</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?pw=<span class="number">1</span><span class="string">'%0aand pw = '</span><span class="number">1</span><span class="string">'or id='</span>admin<span class="string">'%23</span></span><br></pre></td></tr></table></figure>
+<h3 id="payload-4"><a href="#payload-4" class="headerlink" title="payload"></a>payload</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?pw=<span class="number">1</span><span class="string">'%0aand pw = '</span><span class="number">1</span><span class="string">'or id='</span>admin<span class="string">'%23</span></span><br></pre></td></tr></table></figure>
 
 
       
@@ -696,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#assassin"><span class="nav-number">1.</span> <span class="nav-text">assassin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#succubus"><span class="nav-number">2.</span> <span class="nav-text">succubus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload"><span class="nav-number">2.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZOMBIE-ASSASSIN"><span class="nav-number">3.</span> <span class="nav-text">ZOMBIE_ASSASSIN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-1"><span class="nav-number">3.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nightmare"><span class="nav-number">4.</span> <span class="nav-text">nightmare</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-2"><span class="nav-number">4.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xavis"><span class="nav-number">5.</span> <span class="nav-text">xavis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-3"><span class="nav-number">5.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DRAGON"><span class="nav-number">6.</span> <span class="nav-text">DRAGON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#payload-4"><span class="nav-number">7.</span> <span class="nav-text">payload</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#assassin"><span class="nav-number">1.</span> <span class="nav-text">assassin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#succubus"><span class="nav-number">2.</span> <span class="nav-text">succubus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload"><span class="nav-number">2.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZOMBIE-ASSASSIN"><span class="nav-number">3.</span> <span class="nav-text">ZOMBIE_ASSASSIN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-1"><span class="nav-number">3.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nightmare"><span class="nav-number">4.</span> <span class="nav-text">nightmare</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-2"><span class="nav-number">4.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xavis"><span class="nav-number">5.</span> <span class="nav-text">xavis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-3"><span class="nav-number">5.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DRAGON"><span class="nav-number">6.</span> <span class="nav-text">DRAGON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-4"><span class="nav-number">6.1.</span> <span class="nav-text">payload</span></a></li></ol></li></ol></div>
             
 
           </div>
