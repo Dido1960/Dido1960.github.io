@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <h1>Test Page</h1>
+    <script>
+        // 检查对象的所有属性和方法
+        function inspectObject(obj, name) {
+            let info = [];
+            info.push("对象名称: " + name);
+            
+            // 获取对象的所有属性
+            for (let prop in obj) {
+                try {
+                    let value = obj[prop];
+                    let type = typeof value;
+                    let description = "";
+                    
+                    // 如果是函数，获取参数信息
+                    if (type === 'function') {
+                        description = "函数: " + value.toString();
+                    } else {
+                        description = "值: " + value;
+                    }
+                    
+                    info.push(`属性: ${prop}`);
+                    info.push(`类型: ${type}`);
+                    info.push(`描述: ${description}`);
+                    info.push("-------------------");
+                } catch(e) {
+                    info.push(`属性: ${prop} (无法访问)`);
+                }
+            }
+            
+            // 获取对象的原型链信息
+            let proto = Object.getPrototypeOf(obj);
+            if (proto) {
+                info.push("\n原型链信息:");
+                info.push("原型: " + proto.constructor.name);
+                for (let prop in proto) {
+                    try {
+                        let value = proto[prop];
+                        let type = typeof value;
+                        info.push(`原型属性: ${prop}`);
+                        info.push(`类型: ${type}`);
+                        info.push("-------------------");
+                    } catch(e) {
+                        info.push(`原型属性: ${prop} (无法访问)`);
+                    }
+                }
+            }
+            
+            return info.join("\n");
+        }
+
+        function tryCall() {
+            // 尝试 App 对象
+            if (typeof App !== 'undefined') {
+                alert("找到 App 对象");
+                
+                // 检查 App 对象的详细信息
+                // let appInfo = inspectObject(App, "App");
+                // alert("App 对象详细信息:\n" + appInfo);
+                
+                // 尝试调用 call 方法
+                try {
+                    var result = App.call("getToken", "");
+                    alert("App.call 结果: " + result);
+                } catch(e) {
+                    alert("App.call 错误: " + e);
+                }
+            } else {
+                alert("未找到 App 对象");
+            }
+            
+            // 列出所有全局对象
+            alert("全局对象列表:");
+            var objects = [];
+            for (var key in window) {
+                objects.push(key);
+            }
+            alert(objects.join("\n"));
+        }
+        
+        // 页面加载完成后执行
+        window.onload = function() {
+            alert("页面加载完成");
+            setTimeout(tryCall, 1000); // 延迟1秒执行，确保接口已注入
+        };
+    </script>
+</body>
+</html>
